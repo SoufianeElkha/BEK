@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Livello_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 500 62.36">
+  <!-- Generator: Adobe Illustrator 30.2.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        font-size: 12.47px;
+        letter-spacing: .22em;
+      }
+
+      .st0, .st1 {
+        fill: #666;
+        font-family: Helvetica, Helvetica;
+      }
+
+      .st0, .st1, .st2, .st3 {
+        isolation: isolate;
+      }
+
+      .st4 {
+        fill: #fff;
+      }
+
+      .st1 {
+        font-size: 4.85px;
+        letter-spacing: .57em;
+      }
+
+      .st2 {
+        fill: #ff6b00;
+        font-size: 31.87px;
+      }
+
+      .st2, .st3 {
+        font-family: Helvetica-Bold, Helvetica;
+        font-weight: 700;
+      }
+
+      .st5 {
+        stroke-linecap: round;
+        stroke-width: 2.08px;
+      }
+
+      .st5, .st6 {
+        fill: none;
+        stroke: #ff6b00;
+        stroke-miterlimit: 2.77;
+      }
+
+      .st6 {
+        stroke-width: 1.39px;
+      }
+
+      .st3 {
+        fill: #1a1a1a;
+        font-size: 15.24px;
+      }
+    </style>
+  </defs>
+  <rect class="st4" x="76.77" width="346.46" height="62.36"/>
+  <text class="st2" transform="translate(85.09 34.65)"><tspan x="0" y="0">BEK</tspan></text>
+  <line class="st5" x1="156.46" y1="9.7" x2="156.46" y2="41.57"/>
+  <text class="st3" transform="translate(166.85 24.94)"><tspan x="0" y="0">Electric</tspan></text>
+  <text class="st0" transform="translate(166.85 40.19)"><tspan x="0" y="0">Systems</tspan></text>
+  <line class="st6" x1="85.09" y1="49.89" x2="250.15" y2="49.89"/>
+  <text class="st1" transform="translate(85.09 58.9)"><tspan x="0" y="0">QUADRI ELETTRICI • AUTOMAZIONE </tspan></text>
+</svg>

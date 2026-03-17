@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogo Prodotti — BEK Electric System</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><rect width='36' height='36' rx='8' fill='%23F97316'/><path d='M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z' fill='white'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --ink:#111827;--ink2:#374151;--accent:#F97316;--accent-dk:#EA580C;
+      --muted:#6B7280;--bg:#fff;--surf:#F9FAFB;--bdr:#E5E7EB;
+    }
+    [data-theme=dark]{
+      --ink:#F1F5F9;--ink2:#CBD5E1;--accent:#FB923C;--accent-dk:#F97316;
+      --muted:#94A3B8;--bg:#0F172A;--surf:#1E293B;--bdr:#334155;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);transition:background .3s,color .3s}
+
+    /* ── NAV ── */
+    nav{
+      position:sticky;top:0;z-index:100;
+      height:64px;padding:0 24px;
+      background:rgba(255,255,255,.92);backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--bdr);
+      display:flex;align-items:center;
+      transition:background .3s;
+    }
+    [data-theme=dark] nav{background:rgba(15,23,42,.95)}
+    .nav-in{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;gap:16px}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+    .nav-logo img{height:44px;width:auto;display:block}
+    [data-theme="dark"] .nav-logo img{filter:brightness(0) invert(1)}
+    .nav-back{margin-left:auto;display:flex;align-items:center;gap:6px;text-decoration:none;color:var(--muted);font-size:13px;font-weight:500;padding:7px 14px;border-radius:8px;border:1px solid var(--bdr);transition:all .2s;white-space:nowrap}
+    .nav-back:hover{color:var(--ink);border-color:var(--muted)}
+    .dark-toggle{background:var(--surf);border:1px solid var(--bdr);width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:16px;flex-shrink:0;transition:all .2s}
+
+    /* ── HEADER ── */
+    .page-hd{padding:52px 24px 28px;max-width:1280px;margin:0 auto}
+    .eyebrow{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:block}
+    .page-hd h1{font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-1.5px;line-height:1.08;margin-bottom:10px}
+    .page-hd p{font-size:14px;color:var(--muted);max-width:480px;line-height:1.7}
+    .norm-badge{display:inline-flex;align-items:center;gap:6px;margin-top:14px;background:color-mix(in srgb,var(--accent) 10%,transparent);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:.4px}
+
+    /* ── TOOLBAR ── */
+    .toolbar{max-width:1280px;margin:0 auto;padding:0 24px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .tabs{display:flex;gap:3px;background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:3px;flex-shrink:0}
+    .tab-btn{padding:7px 15px;border:none;border-radius:7px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--muted);background:transparent;cursor:pointer;transition:all .2s;white-space:nowrap}
+    .tab-btn.active{background:var(--bg);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+    .search-wrap{flex:1;min-width:180px;max-width:300px;position:relative}
+    .search-wrap svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+    .search-in{width:100%;padding:8px 12px 8px 34px;border:1.5px solid var(--bdr);border-radius:9px;font-family:'Inter',sans-serif;font-size:13px;color:var(--ink);background:var(--bg);outline:none;transition:border-color .2s}
+    .search-in:focus{border-color:var(--accent)}
+    .count-lbl{font-size:12px;color:var(--muted);margin-left:auto;white-space:nowrap}
+
+    /* ── TABLE ── */
+    .tbl-wrap{max-width:1280px;margin:0 auto;padding:0 24px 80px}
+    .tbl{width:100%;border-collapse:collapse;border:1px solid var(--bdr);border-radius:12px;overflow:hidden}
+    .tbl thead tr{background:var(--surf);border-bottom:2px solid var(--bdr)}
+    .tbl th{padding:11px 16px;text-align:left;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;white-space:nowrap}
+    .tbl tbody tr{border-bottom:1px solid var(--bdr);transition:background .15s;cursor:default}
+    .tbl tbody tr:last-child{border-bottom:none}
+    .tbl tbody tr:hover{background:var(--surf)}
+    .tbl td{padding:13px 16px;vertical-align:middle;font-size:13px;color:var(--ink2)}
+    .tbl tbody tr.divider-row td{padding:8px 16px;background:var(--surf);border-bottom:1px solid var(--bdr)}
+    .divider-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--ink2);display:flex;align-items:center;gap:10px}
+    .divider-label::after{content:'';flex:1;height:1px;background:var(--bdr)}
+
+    /* cells */
+    .td-name{min-width:160px}
+    .pname{font-size:14px;font-weight:700;color:var(--ink)}
+    .pcode{font-size:10px;color:var(--muted);font-family:monospace;margin-top:2px}
+    .badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:2px 9px;border-radius:4px;letter-spacing:.3px;white-space:nowrap}
+    .b-dol{background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)}
+    .b-yd{background:color-mix(in srgb,#3B82F6 12%,transparent);color:#2563EB}
+    [data-theme=dark] .b-yd{color:#60A5FA}
+    .td-kw{font-weight:700;color:var(--ink);white-space:nowrap}
+    .td-sub{color:var(--muted);font-size:12px}
+    .td-dims{font-size:12px;color:var(--muted);line-height:1.5}
+    .td-vol{font-size:12px;color:var(--muted)}
+    .btn-prev{background:var(--accent);color:#fff;border:none;border-radius:7px;padding:7px 15px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;white-space:nowrap;transition:background .2s}
+    .btn-prev:hover{background:var(--accent-dk)}
+    .empty-row td{padding:56px 20px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* ── CTA FOOTER ── */
+    .cta-strip{background:var(--surf);border-top:1px solid var(--bdr);padding:48px 24px;text-align:center}
+    .cta-strip h3{font-size:clamp(20px,2.5vw,32px);font-weight:900;letter-spacing:-1px;margin-bottom:10px}
+    .cta-strip p{font-size:14px;color:var(--muted);margin-bottom:24px}
+    .btn-cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:13px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;transition:background .2s}
+    .btn-cta:hover{background:var(--accent-dk)}
+
+    @media(max-width:900px){
+      nav{padding:0 16px}
+      .page-hd,.toolbar,.tbl-wrap{padding-left:16px;padding-right:16px}
+      .tbl thead{display:none}
+      .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
+      .tbl tbody tr{padding:14px 16px;border-bottom:1px solid var(--bdr)}
+      .tbl td{padding:2px 0;border:none}
+      .tbl td[data-hide-mobile]{display:none}
+      .td-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0}
+      .tbl tbody tr.divider-row{padding:8px 16px}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="PREVIEW_SITO_V2.html" class="nav-logo" aria-label="BEK Electric Systems — Home">
+      <img src="assets/BE_Electric_06_minimal_line_bek_PRINCIPALE.svg" alt="BEK Electric Systems">
+    </a>
+    <a href="PREVIEW_SITO_V2.html" class="nav-back">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Torna al sito
+    </a>
+    <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" title="Tema">🌙</button>
+  </div>
+</nav>
+
+<div class="page-hd">
+  <span class="eyebrow">Catalogo Prodotti</span>
+  <h1>Linea Smart BEK</h1>
+  <p>Quadri di comando per elettropompe antincendio EN 12845 — avviamento diretto (DOL) e stella-triangolo (Y/Δ).</p>
+  <div class="norm-badge">⚡ Conformi EN 12845 · 3 – 160 kW · 20 modelli</div>
+</div>
+
+<div class="toolbar">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="filter(this,'all')">Tutti (20)</button>
+    <button class="tab-btn" onclick="filter(this,'direct')">DOL — Avviamento Diretto</button>
+    <button class="tab-btn" onclick="filter(this,'star-delta')">Y/Δ — Stella-Triangolo</button>
+  </div>
+  <div class="search-wrap">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <input type="search" class="search-in" id="searchIn" placeholder="Cerca per kW, modello, codice…" oninput="applySearch()">
+  </div>
+  <span class="count-lbl" id="countLbl"></span>
+</div>
+
+<div class="tbl-wrap">
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th>Modello</th>
+        <th>Tipo</th>
+        <th>Potenza</th>
+        <th>HP</th>
+        <th>Corrente max</th>
+        <th>Tensione</th>
+        <th>Dim. H×L×P (mm)</th>
+        <th>Peso</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<div class="cta-strip">
+  <h3>Hai trovato il modello giusto?</h3>
+  <p>Richiedi subito il tuo preventivo personalizzato. Risposta entro 24 ore lavorative.</p>
+  <a href="PREVENTIVO.html" class="btn-cta">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Richiedi Preventivo
+  </a>
+</div>
+
+<script>
+/* ─── DARK MODE ─── */
+function toggleDark(){
+  const dark=document.documentElement.getAttribute('data-theme')!=='dark';
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  document.getElementById('darkToggle').textContent=dark?'☀️':'🌙';
+  localStorage.setItem('bek-theme',dark?'dark':'light');
+}
+(function(){
+  if(localStorage.getItem('bek-theme')==='dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+    document.getElementById('darkToggle').textContent='☀️';
+  }
+})();
+
+/* ─── PRODUCT DATA (embedded, no server required) ─── */
+const PRODUCTS=[{"code":"6003011","name":"EGE SMART 3","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":3,"hp":5,"currentMax":7,"box":{"h":500,"l":400,"w":200},"weight":16.8},{"code":"6005511","name":"EGE SMART 5,5","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":5.5,"hp":7.5,"currentMax":12,"box":{"h":500,"l":400,"w":200},"weight":16.8},{"code":"6007511","name":"EGE SMART 7,5","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":7.5,"hp":10,"currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":17},{"code":"6011011","name":"EGE SMART 11","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":11,"hp":15,"currentMax":24,"box":{"h":500,"l":400,"w":200},"weight":17.6},{"code":"6011021","name":"EGE SMART 11 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":11,"hp":15,"currentMax":24,"box":{"h":500,"l":400,"w":200},"weight":18.3},{"code":"6015011","name":"EGE SMART 15","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":15,"hp":20,"currentMax":32,"box":{"h":500,"l":400,"w":200},"weight":17.8},{"code":"6015021","name":"EGE SMART 15 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":15,"hp":20,"currentMax":32,"box":{"h":500,"l":400,"w":200},"weight":18},{"code":"6018511","name":"EGE SMART 18,5","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":18.5,"hp":25,"currentMax":36,"box":{"h":500,"l":400,"w":200},"weight":18.5},{"code":"6018521","name":"EGE SMART 18,5 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":18.5,"hp":25,"currentMax":36,"box":{"h":500,"l":400,"w":200},"weight":18.5},{"code":"6022011","name":"EGE SMART 22","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":22,"hp":30,"currentMax":40,"box":{"h":500,"l":400,"w":200},"weight":19},{"code":"6022021","name":"EGE SMART 22 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":22,"hp":30,"currentMax":40,"box":{"h":500,"l":400,"w":200},"weight":19.2},{"code":"6030021","name":"EGE SMART 30 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":30,"hp":40,"currentMax":60,"box":{"h":500,"l":400,"w":200},"weight":20.1},{"code":"6037022","name":"EGE SMART 37 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":37,"hp":50,"currentMax":70,"box":{"h":700,"l":500,"w":250},"weight":33.6},{"code":"6045022","name":"EGE SMART 45 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":45,"hp":60,"currentMax":80,"box":{"h":700,"l":500,"w":250},"weight":34},{"code":"6055022","name":"EGE SMART 55 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":55,"hp":75,"currentMax":100,"box":{"h":700,"l":500,"w":250},"weight":38.5},{"code":"6075023","name":"EGE SMART 75 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":75,"hp":100,"currentMax":132,"box":{"h":800,"l":600,"w":250},"weight":54.5},{"code":"6090023","name":"EGE SMART 90 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":90,"hp":125,"currentMax":160,"box":{"h":800,"l":600,"w":250},"weight":64},{"code":"6110023","name":"EGE SMART 110 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":110,"hp":150,"currentMax":200,"box":{"h":800,"l":600,"w":250},"weight":85},{"code":"6132024","name":"EGE SMART 132 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":132,"hp":200,"currentMax":240,"box":{"h":1000,"l":800,"w":300},"weight":95},{"code":"6160024","name":"EGE SMART 160 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":160,"hp":200,"currentMax":296,"box":{"h":1000,"l":800,"w":300},"weight":100}];
+
+let activeCat='all', activeQ='';
+
+function dispName(n){return n.replace(/EGE SMART/g,'BEK Smart')}
+
+function render(){
+  const q=activeQ.toLowerCase();
+  const rows=PRODUCTS.filter(p=>{
+    if(activeCat!=='all'&&p.category!==activeCat)return false;
+    if(q){
+      const n=dispName(p.name).toLowerCase();
+      if(!n.includes(q)&&!p.code.includes(q)&&!String(p.kw).includes(q)&&!String(p.hp).includes(q))return false;
+    }
+    return true;
+  });
+
+  document.getElementById('countLbl').textContent=rows.length+' prodott'+(rows.length===1?'o':'i');
+
+  const tbody=document.getElementById('tbody');
+  tbody.innerHTML='';
+
+  if(!rows.length){
+    tbody.innerHTML='<tr><td colspan="9" style="padding:56px 20px;text-align:center;color:var(--muted);font-size:14px">Nessun prodotto trovato.</td></tr>';
+    return;
+  }
+
+  let lastCat=null;
+  for(const p of rows){
+    if(activeCat==='all'&&p.category!==lastCat){
+      lastCat=p.category;
+      const lbl=p.category==='direct'?'Avviamento Diretto — DOL':'Stella-Triangolo — Y/Δ';
+      tbody.innerHTML+=`<tr class="divider-row"><td colspan="9"><div class="divider-label">${lbl}</div></td></tr>`;
+    }
+    const nm=dispName(p.name);
+    const isDOL=p.category==='direct';
+    const badge=isDOL?'<span class="badge b-dol">DOL</span>':'<span class="badge b-yd">Y/Δ</span>';
+    const dims=`${p.box.h} × ${p.box.l} × ${p.box.w}`;
+    const mp=encodeURIComponent(nm);
+    tbody.innerHTML+=`
+      <tr>
+        <td class="td-name">
+          <div class="pname">${nm}</div>
+          <div class="pcode">${p.code}</div>
+        </td>
+        <td>${badge}</td>
+        <td class="td-kw">${p.kw} kW</td>
+        <td class="td-sub" data-hide-mobile>${p.hp} HP</td>
+        <td class="td-sub" data-hide-mobile>${p.currentMax} A</td>
+        <td class="td-vol" data-hide-mobile>${p.voltage}</td>
+        <td class="td-dims" data-hide-mobile>${dims} mm</td>
+        <td class="td-sub" data-hide-mobile>${p.weight} kg</td>
+        <td style="text-align:right"><a href="PREVENTIVO.html?model=${mp}" class="btn-prev">Preventivo →</a></td>
+      </tr>`;
+  }
+}
+
+function filter(btn,cat){
+  activeCat=cat;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+function applySearch(){
+  activeQ=document.getElementById('searchIn').value.trim();
+  render();
+}
+
+// pre-filter da URL ?cat=direct|star-delta
+(function(){
+  const c=new URLSearchParams(location.search).get('cat');
+  if(c==='direct'||c==='star-delta'){
+    activeCat=c;
+    document.querySelectorAll('.tab-btn').forEach(b=>{
+      b.classList.toggle('active', b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+c+"'"));
+    });
+  }
+})();
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Livello_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 500 62.36">
+  <!-- Generator: Adobe Illustrator 30.2.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #666;
+        font-family: Helvetica, Helvetica;
+        font-size: 12.47px;
+        letter-spacing: .22em;
+      }
+
+      .st0, .st1, .st2 {
+        isolation: isolate;
+      }
+
+      .st1 {
+        fill: #ff6b00;
+        font-size: 31.87px;
+      }
+
+      .st1, .st2 {
+        font-family: Helvetica-Bold, Helvetica;
+        font-weight: 700;
+      }
+
+      .st3 {
+        stroke-linecap: round;
+        stroke-width: 2.08px;
+      }
+
+      .st3, .st4 {
+        fill: none;
+        stroke: #ff6b00;
+        stroke-miterlimit: 2.77;
+      }
+
+      .st4 {
+        stroke-width: 1.39px;
+      }
+
+      .st2 {
+        fill: #1a1a1a;
+        font-size: 15.24px;
+      }
+    </style>
+  </defs>
+  <text class="st1" transform="translate(92.86 31.53)"><tspan x="0" y="0">BEK</tspan></text>
+  <line class="st3" x1="164" y1="6.36" x2="164" y2="38.36"/>
+  <text class="st2" transform="translate(174.63 21.83)"><tspan x="0" y="0">Electric</tspan></text>
+  <text class="st0" transform="translate(174.63 37.07)"><tspan x="0" y="0">Systems</tspan></text>
+  <line class="st4" x1="93" y1="46.86" x2="242.66" y2="46.86"/>
+</svg>
