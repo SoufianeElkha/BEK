@@ -6,7 +6,7 @@
   <title>Preventivo & Targa Personalizzata — BEK Electric System</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><rect width='36' height='36' rx='8' fill='%23F97316'/><path d='M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z' fill='white'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,7 +20,7 @@
       --muted: #94A3B8; --bg: #0F172A; --surface: #1E293B; --border: #334155;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); transition: background .3s, color .3s; }
+    body { font-family: 'Barlow', sans-serif; color: var(--ink); background: var(--bg); transition: background .3s, color .3s; }
 
     /* NAV — stile arancione come home page */
     nav {
@@ -45,7 +45,7 @@
 
     /* VERSION TOGGLE */
     .version-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; max-width: 780px; }
-    .vtab { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 22px 28px; border: 2px solid var(--border); border-radius: 16px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; color: var(--muted); background: var(--bg); cursor: pointer; transition: all .2s; }
+    .vtab { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 22px 28px; border: 2px solid var(--border); border-radius: 16px; font-family: 'Barlow', sans-serif; font-size: 16px; font-weight: 700; color: var(--muted); background: var(--bg); cursor: pointer; transition: all .2s; }
     .vtab svg { width: 22px; height: 22px; flex-shrink: 0; }
     .vtab:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.08); }
     .vtab.active { background: var(--accent); color: white; border-color: var(--accent); box-shadow: 0 8px 24px rgba(255,107,0,.25); }
@@ -103,7 +103,7 @@
     .controls { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
     .controls .ctrl-full { grid-column: 1 / -1; }
     .ctrl-label { font-size:10px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; display:block; }
-    .ctrl-input { width:100%; padding:10px 13px; border:1.5px solid var(--border); border-radius:9px; font-family:'Inter',sans-serif; font-size:13px; color:var(--ink); background:var(--bg); outline:none; transition:border-color .2s; appearance:none; }
+    .ctrl-input { width:100%; padding:10px 13px; border:1.5px solid var(--border); border-radius:9px; font-family:'Barlow',sans-serif; font-size:13px; color:var(--ink); background:var(--bg); outline:none; transition:border-color .2s; appearance:none; }
     .ctrl-input:focus { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 12%,transparent); }
     .color-picker { display:flex; gap:7px; }
     .color-opt { width:30px; height:30px; border-radius:7px; cursor:pointer; border:2px solid transparent; transition:all .15s; }
@@ -117,7 +117,7 @@
     .logo-drop p { font-size:12px; color:var(--muted); margin-top:5px; }
     .logo-drop strong { color:var(--accent); }
     #logo-input { display:none; }
-    .btn-download { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:8px 16px; font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:var(--muted); cursor:pointer; display:inline-flex; align-items:center; gap:6px; transition:all .2s; }
+    .btn-download { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:8px 16px; font-family:'Barlow',sans-serif; font-size:12px; font-weight:600; color:var(--muted); cursor:pointer; display:inline-flex; align-items:center; gap:6px; transition:all .2s; }
     .btn-download:hover { color:var(--ink); border-color:var(--muted); }
 
     /* FORM CARD */
@@ -126,7 +126,7 @@
     .fg label { font-size:10px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.8px; margin-bottom:5px; display:block; }
     .fg input,.fg textarea,.fg select {
       width:100%; padding:11px 13px; border:1.5px solid var(--border); border-radius:9px;
-      font-family:'Inter',sans-serif; font-size:13px; color:var(--ink); background:var(--bg);
+      font-family:'Barlow',sans-serif; font-size:13px; color:var(--ink); background:var(--bg);
       outline:none; transition:border-color .2s; appearance:none;
     }
     .fg input:focus,.fg textarea:focus,.fg select:focus { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 12%,transparent); }
@@ -135,7 +135,7 @@
     .targa-summary { background:color-mix(in srgb,var(--accent) 8%,transparent); border:1px solid color-mix(in srgb,var(--accent) 25%,transparent); border-radius:9px; padding:12px 14px; margin-bottom:14px; }
     .targa-summary p { font-size:11px; color:var(--accent); margin-bottom:3px; font-weight:600; }
     .targa-summary strong { font-size:12px; color:var(--ink); }
-    .btn-submit { width:100%; padding:14px; background:var(--accent); color:#fff; border:none; border-radius:10px; font-family:'Inter',sans-serif; font-size:14px; font-weight:700; cursor:pointer; transition:background .2s; display:flex; align-items:center; justify-content:center; gap:8px; }
+    .btn-submit { width:100%; padding:14px; background:var(--accent); color:#fff; border:none; border-radius:10px; font-family:'Barlow',sans-serif; font-size:14px; font-weight:700; cursor:pointer; transition:background .2s; display:flex; align-items:center; justify-content:center; gap:8px; }
     .btn-submit:hover { background:var(--accent-dark); }
     .privacy-note { font-size:11px; color:var(--muted); text-align:center; margin-top:10px; line-height:1.5; }
 
