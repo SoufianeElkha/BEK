@@ -54,6 +54,7 @@
     .main-layout { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 400px; gap: 40px; align-items: start; }
     .main-layout.notarga { grid-template-columns: 1fr; max-width: 660px; }
     .main-layout.notarga .designer-col { display: none; }
+    .main-layout.notarga .form-col { display: block; }
     .main-layout.notarga .form-card { position: static; }
 
     /* DESIGNER CARD */
@@ -99,7 +100,8 @@
     .nameplate.color-blue .nameplate-logo-area { border-color:rgba(255,255,255,.3); background:rgba(255,255,255,.1); }
 
     /* CONTROLS */
-    .controls { display:flex; flex-direction:column; gap:14px; }
+    .controls { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .controls .ctrl-full { grid-column: 1 / -1; }
     .ctrl-label { font-size:10px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; display:block; }
     .ctrl-input { width:100%; padding:10px 13px; border:1.5px solid var(--border); border-radius:9px; font-family:'Inter',sans-serif; font-size:13px; color:var(--ink); background:var(--bg); outline:none; transition:border-color .2s; appearance:none; }
     .ctrl-input:focus { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 12%,transparent); }
@@ -145,6 +147,7 @@
       .main-layout { padding:0 16px 60px; grid-template-columns:1fr; }
       .form-card { position:static; }
       .version-toggle { grid-template-columns:1fr; } .vtab { font-size:14px; padding:18px 20px; }
+      .controls { grid-template-columns:1fr; }
     }
     /* FOOTER LOGO */
     /* FOOTER */
@@ -253,25 +256,24 @@
           <div>
             <span class="ctrl-label">Logo aziendale</span>
             <div class="logo-drop" onclick="document.getElementById('logo-input').click()">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin:0 auto;display:block;color:var(--muted)"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <p><strong>Clicca per caricare</strong> oppure trascina qui</p>
-              <p>PNG, JPG, WebP — max 2 MB</p>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="margin:0 auto;display:block;color:var(--muted)"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p><strong>Clicca per caricare</strong> · PNG, JPG, WebP</p>
             </div>
           </div>
           <div>
-            <span class="ctrl-label">Riga 1 — Nome azienda</span>
+            <span class="ctrl-label">Nome azienda</span>
             <input type="text" class="ctrl-input" id="in-l1" placeholder="Es. Rossi Impianti S.r.l." oninput="updateNP('np-l1','in-l1','Nome Azienda')">
           </div>
           <div>
-            <span class="ctrl-label">Riga 2 — Indirizzo</span>
+            <span class="ctrl-label">Indirizzo</span>
             <input type="text" class="ctrl-input" id="in-l2" placeholder="Es. Via Roma 1, 35100 Padova" oninput="updateNP('np-l2','in-l2','Via Roma 1, 35100 Padova')">
           </div>
           <div>
-            <span class="ctrl-label">Riga 3 — Telefono / Email</span>
-            <input type="text" class="ctrl-input" id="in-l3" placeholder="Es. Tel: +39 049 000 0000" oninput="updateNP('np-l3','in-l3','Tel: +39 049 000 0000')">
+            <span class="ctrl-label">Telefono / Email</span>
+            <input type="text" class="ctrl-input" id="in-l3" placeholder="Es. +39 049 000 0000" oninput="updateNP('np-l3','in-l3','Tel: +39 049 000 0000')">
           </div>
           <div>
-            <span class="ctrl-label">Modello quadro (per targa)</span>
+            <span class="ctrl-label">Modello quadro</span>
             <select class="ctrl-input" id="in-model" onchange="updateModel()">
               <optgroup label="— Avviamento Diretto (DOL) —">
                 <option value="BEK Smart 3 · 3 kW DOL | EN 12845">BEK Smart 3 — 3 kW</option>
@@ -301,6 +303,9 @@
                 <option value="Altro / Personalizzato">Altro / Personalizzato</option>
               </optgroup>
             </select>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
