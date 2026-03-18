@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Preventivo & Targa Personalizzata — BEK Electric Systems</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><rect width='36' height='36' rx='8' fill='%23F97316'/><path d='M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z' fill='white'/></svg>">
+  <link rel="icon" type="image/png" href="assets/favicon-bek.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -181,7 +181,7 @@
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Torna al sito
     </a>
-    <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" title="Cambia tema">🌙</button>
+    <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" title="Cambia tema">☽</button>
   </div>
 </nav>
 
@@ -326,7 +326,7 @@
       </div>
       <div class="card-body" id="form-body">
         <div class="targa-summary" id="targa-summary">
-          <p>✅ Targa configurata:</p>
+          <p>Targa configurata:</p>
           <strong id="summary-text">Directo-EN / 15 kW — Targa personalizzata</strong>
         </div>
         <div class="frow2">
@@ -400,14 +400,14 @@
     const html = document.documentElement;
     const dark = html.getAttribute('data-theme') !== 'dark';
     html.setAttribute('data-theme', dark ? 'dark' : 'light');
-    document.getElementById('darkToggle').textContent = dark ? '☀️' : '🌙';
+    document.getElementById('darkToggle').textContent = dark ? '☼' : '☽';
     localStorage.setItem('bek-theme', dark ? 'dark' : 'light');
   }
   (function() {
     const saved = localStorage.getItem('bek-theme');
     if (saved === 'dark') {
       document.documentElement.setAttribute('data-theme','dark');
-      document.getElementById('darkToggle').textContent = '☀️';
+      document.getElementById('darkToggle').textContent = '☼';
     }
   })();
 
