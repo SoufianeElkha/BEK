@@ -16,13 +16,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --ink: #111827; --ink2: #374151; --accent: #F97316; --accent-dark: #EA580C;
-      --muted: #6B7280; --bg: #FFFFFF; --surface: #F9FAFB; --border: #E5E7EB;
+      --muted: #6B7280; --bg: #FFFFFF; --surface: #F9FAFB; --border: #E5E7EB; --bg-alt: #f8fafc;
       --nav-h: 64px; --radius: 12px; --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
     }
     [data-theme="dark"] {
       --ink: #F1F5F9; --ink2: #CBD5E1; --accent: #FB923C; --accent-dark: #F97316;
       --muted: #94A3B8; --bg: #0F172A; --surface: #1E293B; --border: #334155;
       --shadow: 0 1px 3px rgba(0,0,0,.4), 0 4px 16px rgba(0,0,0,.3);
+      --bg-alt: #1E293B;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; transition: background .3s, color .3s; }
@@ -32,7 +33,7 @@
     /* HEADER — banda arancione, area logo bianca a sinistra */
     header { position: sticky; top: 0; z-index: 100; background: var(--accent); display: flex; align-items: stretch; }
     .topbar-logo { background: white; text-decoration: none; display: flex; align-items: center; flex-shrink: 0; padding: 16px 32px; }
-    .topbar-logo img { height: 68px; width: auto; display: block; }
+    .topbar-logo img { height: 88px; width: auto; display: block; }
     .topbar-inner { flex: 1; display: flex; align-items: center; gap: 16px; padding: 0 24px 0 16px; }
     .topbar-links { display: flex; align-items: center; gap: 2px; flex: 1; }
     .topbar-links a { color: rgba(255,255,255,.93); text-decoration: none; font-size: .9rem; font-weight: 500; padding: 7px 12px; border-radius: 6px; transition: background .15s; white-space: nowrap; }
@@ -144,7 +145,7 @@
     /* CERTIFICAZIONI */
     /* CHOOSE GRID */
     .choose-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; max-width: 900px; margin: 0 auto; }
-    .choose-card { border-radius: 20px; padding: 40px 36px 36px; display: flex; flex-direction: column; gap: 18px; background: #fff; border: 2px solid #e2e8f0; transition: transform .25s, box-shadow .25s; }
+    .choose-card { border-radius: 20px; padding: 40px 36px 36px; display: flex; flex-direction: column; gap: 18px; background: var(--bg); border: 2px solid var(--border); transition: transform .25s, box-shadow .25s; }
     .choose-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,.10); }
     .choose-blue { border-top: 6px solid #3b82f6; }
     .choose-green { border-top: 6px solid #22c55e; }
@@ -265,6 +266,10 @@
     .price-na { color: var(--muted); font-style: italic; font-size: .8rem; }
     .price-saving { display: inline-block; background: #D1FAE5; color: #065F46; font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 100px; margin-top: 4px; white-space: nowrap; }
     [data-theme="dark"] .price-saving { background: #064E3B; color: #6EE7B7; }
+    [data-theme="dark"] .choose-card:hover { box-shadow: 0 24px 48px rgba(0,0,0,.3); }
+    [data-theme="dark"] .svg-bg { fill: #1E293B; stroke: #334155; }
+    [data-theme="dark"] .confronto-table th { background: var(--surface); }
+    [data-theme="dark"] .confronto-table tr:hover td { background: color-mix(in srgb, var(--accent) 6%, transparent); }
     .col-roiv td { background: color-mix(in srgb, var(--accent) 5%, transparent); }
     .confronto-footer-note { font-size: .75rem; color: var(--muted); margin-top: 16px; line-height: 1.6; }
     .confronto-cta-row { display: flex; align-items: center; gap: 16px; margin-top: 28px; flex-wrap: wrap; }
@@ -296,7 +301,7 @@
     @media (max-width: 960px) {
       .topbar-links { display: none; }
       .topbar-action-link { display: none; }
-      .topbar-logo img { height: 40px; }
+      .topbar-logo img { height: 52px; }
       .hamburger { display: flex; }
       .chi-siamo-grid { grid-template-columns: 1fr; }
       .chi-siamo-visual { aspect-ratio: 16/7; }
@@ -510,7 +515,7 @@
       </a>
     </div>
     <div style="text-align:center;margin-top:28px">
-      <a href="catalogo.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--surf);border:1px solid var(--bdr);color:var(--ink2);padding:12px 24px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:600;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--bdr)';this.style.color='var(--ink2)'">
+      <a href="catalogo.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);color:var(--ink2);padding:12px 24px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:600;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink2)'">
         Vedi catalogo completo con schede tecniche →
       </a>
     </div>
@@ -643,7 +648,7 @@
     <svg viewBox="0 0 1200 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;" role="img" aria-label="Schema impianto antincendio BEK">
 
       <!-- sfondo -->
-      <rect width="1200" height="440" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+      <rect width="1200" height="440" rx="20" class="svg-bg" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
 
       <!-- ── FONTE IDRICA ── -->
       <rect x="28" y="150" width="158" height="140" rx="14" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
