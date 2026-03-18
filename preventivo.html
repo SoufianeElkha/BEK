@@ -19,8 +19,8 @@
       --ink: #F1F5F9; --ink2: #CBD5E1; --accent: #FB923C; --accent-dark: #F97316;
       --muted: #94A3B8; --bg: #0F172A; --surface: #1E293B; --border: #334155;
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Barlow', sans-serif; color: var(--ink); background: var(--bg); transition: background .3s, color .3s; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'Barlow', sans-serif; color: var(--ink); background: var(--bg); transition: background .3s, color .3s; overflow-x: hidden; width: 100%; }
 
     /* NAV — stile arancione come home page */
     nav {
@@ -140,8 +140,8 @@
     .privacy-note { font-size:11px; color:var(--muted); text-align:center; margin-top:10px; line-height:1.5; }
 
     @media (max-width:900px) {
-      .nav-logo { padding: 10px 14px; }
-      .nav-logo img { height: 48px; }
+      .nav-logo { padding: 10px 16px; }
+      .nav-logo img { height: 54px; }
       .nav-inner { padding: 0 16px; }
       .page-header { padding:40px 16px 28px; }
       .main-layout { padding:0 16px 60px; grid-template-columns:1fr; }
