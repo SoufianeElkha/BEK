@@ -297,10 +297,10 @@
                 <option value="BEK Smart 132 Y/D · 132 kW Y/Δ | EN 12845">BEK Smart 132 Y/D — 132 kW</option>
                 <option value="BEK Smart 160 Y/D · 160 kW Y/Δ | EN 12845">BEK Smart 160 Y/D — 160 kW</option>
               </optgroup>
+              <optgroup label="— Altro —">
+                <option value="Altro / Personalizzato">Altro / Personalizzato</option>
+              </optgroup>
             </select>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -390,14 +390,20 @@
     }
   })();
 
-  // URL param: pre-select model
+  // URL param: pre-select model (if no param → "Altro / Personalizzato")
   (function() {
     const p = new URLSearchParams(location.search).get('model');
+    const sel = document.getElementById('in-model');
+    const formSel = document.getElementById('form-model');
     if (p) {
-      const sel = document.getElementById('in-model');
       for (let o of sel.options) { if (o.value.toLowerCase().includes(p.toLowerCase())) { o.selected = true; break; } }
-      updateModel();
+      for (let o of formSel.options) { if (o.textContent.toLowerCase().includes(p.toLowerCase())) { o.selected = true; break; } }
+    } else {
+      // Nessun modello specificato → Altro / Personalizzato
+      for (let o of sel.options) { if (o.value === 'Altro / Personalizzato') { o.selected = true; break; } }
+      for (let o of formSel.options) { if (o.textContent === 'Altro / Personalizzato') { o.selected = true; break; } }
     }
+    updateModel();
   })();
 
   function updateNP(elId, inputId, placeholder) {
