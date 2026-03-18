@@ -301,11 +301,12 @@
     @media (max-width: 960px) {
       .topbar-links { display: none; }
       .topbar-action-link { display: none; }
-      .topbar-logo { padding: 10px 14px; }
-      .topbar-logo img { height: 44px; }
-      .topbar-inner { padding: 0 12px; gap: 8px; }
+      .topbar-logo { padding: 8px 12px; }
+      .topbar-logo img { height: 36px; }
+      .topbar-inner { padding: 0 10px; gap: 6px; }
       .hamburger { display: flex; }
-      .btn-topbar { padding: 7px 14px; font-size: .8rem; }
+      .btn-topbar { padding: 6px 12px; font-size: .75rem; }
+      .dark-toggle { width: 30px; height: 30px; font-size: 14px; }
       .chi-siamo-grid { grid-template-columns: 1fr; }
       .chi-siamo-visual { aspect-ratio: 16/7; }
       .perche-grid { grid-template-columns: 1fr 1fr; }
@@ -325,6 +326,14 @@
       .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
       .testi-grid { grid-template-columns: 1fr; }
       .steps-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .topbar-logo { padding: 6px 8px; }
+      .topbar-logo img { height: 28px; }
+      .topbar-inner { padding: 0 8px; gap: 4px; }
+      .btn-topbar { padding: 5px 10px; font-size: .7rem; }
+      .dark-toggle { display: none; }
+      .hamburger { width: 32px; height: 32px; }
     }
 
     /* ─── ANIMATIONS ─── */
