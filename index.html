@@ -301,8 +301,11 @@
     @media (max-width: 960px) {
       .topbar-links { display: none; }
       .topbar-action-link { display: none; }
-      .topbar-logo img { height: 52px; }
+      .topbar-logo { padding: 10px 14px; }
+      .topbar-logo img { height: 44px; }
+      .topbar-inner { padding: 0 12px; gap: 8px; }
       .hamburger { display: flex; }
+      .btn-topbar { padding: 7px 14px; font-size: .8rem; }
       .chi-siamo-grid { grid-template-columns: 1fr; }
       .chi-siamo-visual { aspect-ratio: 16/7; }
       .perche-grid { grid-template-columns: 1fr 1fr; }
@@ -430,6 +433,7 @@
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-nav-close" id="mobileNavClose">✕</button>
+  <div style="margin-bottom:12px"><img src="assets/logo.svg" alt="BEK" style="height:40px;width:auto"></div>
   <a href="#prodotti" class="mobile-link">Prodotti</a>
   <a href="#chi-siamo" class="mobile-link">Chi Siamo</a>
   <a href="#perche-noi" class="mobile-link">Perché Noi</a>
