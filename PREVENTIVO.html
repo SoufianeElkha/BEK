@@ -212,7 +212,6 @@
       <div class="card-body">
 
         <div class="preview-wrap">
-          <!-- TARGA CLASSICA (Electric Smart) -->
           <div class="nameplate color-default" id="nameplate">
             <div class="screw tl"></div><div class="screw tr"></div>
             <div class="screw bl"></div><div class="screw br"></div>
@@ -230,142 +229,6 @@
               <div class="np-model" id="np-model">DIRECTO-EN / 15 kW &nbsp;|&nbsp; EN 12845</div>
               <div class="np-serial">Matr. N° _____________</div>
             </div>
-          </div>
-
-          <!-- PANNELLO DIESEL (Reacto / Altro) -->
-          <div id="panel-reacto" style="display:none;width:100%;max-width:560px;">
-            <svg viewBox="0 0 700 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;border-radius:16px;filter:drop-shadow(0 4px 16px rgba(0,0,0,.25))">
-              <defs>
-                <radialGradient id="ledOn" cx="50%" cy="30%" r="60%"><stop offset="0%" stop-color="#67e8f9"/><stop offset="100%" stop-color="#06b6d4"/></radialGradient>
-                <radialGradient id="btnOrange" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#fb923c"/><stop offset="100%" stop-color="#ea580c"/></radialGradient>
-                <filter id="glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-              </defs>
-              <!-- Background -->
-              <rect width="700" height="520" rx="18" fill="#3a3f4a"/>
-              <rect x="4" y="4" width="692" height="512" rx="15" fill="none" stroke="#4a4f5a" stroke-width="1"/>
-
-              <!-- ══ RESET ALARM ══ -->
-              <circle cx="68" cy="72" r="36" fill="none" stroke="#ea580c" stroke-width="3.5"/>
-              <text x="68" y="66" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#ddd" letter-spacing="1">RESET</text>
-              <text x="68" y="80" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#ddd" letter-spacing="1">ALARM</text>
-
-              <!-- ══ LED + Labels (MAN / lock / AUTO) ══ -->
-              <circle cx="118" cy="120" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-              <text x="132" y="113" font-family="monospace" font-size="10" fill="#bbb">⚠</text>
-
-              <circle cx="118" cy="152" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-              <text x="132" y="157" font-family="monospace" font-size="12" font-weight="700" fill="#ccc" letter-spacing="2">MAN</text>
-
-              <circle cx="118" cy="184" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-              <text x="132" y="189" font-family="monospace" font-size="12" fill="#ccc">🔒</text>
-
-              <circle cx="118" cy="218" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-              <text x="132" y="223" font-family="monospace" font-size="12" font-weight="700" fill="#ccc" letter-spacing="2">AUTO</text>
-
-              <!-- ══ DISPLAY AREA ══ -->
-              <rect x="195" y="42" width="310" height="230" rx="6" fill="#111" stroke="#222" stroke-width="2"/>
-
-              <!-- Logo area (rettangolo rosso → area logo) -->
-              <rect x="330" y="50" width="108" height="30" rx="2" fill="#1a1a1a" stroke="#666" stroke-width="1" id="panel-logo-border"/>
-              <g id="panel-logo-area" style="cursor:pointer" onclick="document.getElementById('logo-input').click()">
-                <rect x="331" y="51" width="106" height="28" rx="2" fill="#1a1a1a"/>
-                <text x="384" y="69" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#666" id="panel-logo-text">CLICCA — LOGO</text>
-                <image x="332" y="52" width="104" height="26" id="panel-logo-img" style="display:none" preserveAspectRatio="xMidYMid meet"/>
-              </g>
-
-              <!-- LCD Screen (cyan) -->
-              <rect x="220" y="90" width="260" height="160" rx="4" fill="#0a0a0a"/>
-              <rect x="224" y="94" width="252" height="152" rx="3" fill="#22d3ee" opacity=".85"/>
-
-              <!-- ══ D-PAD (destra) ══ -->
-              <g transform="translate(580,140)">
-                <rect x="-48" y="-48" width="96" height="96" rx="12" fill="none" stroke="#ea580c" stroke-width="3" transform="rotate(45)"/>
-                <polygon points="0,-30 10,-15 -10,-15" fill="#8a8f9a"/>
-                <polygon points="0,30 10,15 -10,15" fill="#8a8f9a"/>
-                <polygon points="-30,0 -15,10 -15,-10" fill="#8a8f9a"/>
-                <polygon points="30,0 15,10 15,-10" fill="#8a8f9a"/>
-              </g>
-
-              <!-- ══ ICONE STATUS sotto display ══ -->
-              <g transform="translate(210,285)" font-family="monospace" font-size="9" fill="#bbb">
-                <!-- Valvola -->
-                <text x="0" y="0" font-size="16">⊘</text>
-                <text x="22" y="0" font-size="16">⊘</text>
-                <!-- Mancato avviamento -->
-                <circle cx="108" cy="-4" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-                <text x="70" y="14" font-size="8" fill="#999" letter-spacing=".5">MANCATO AVVIAMENTO</text>
-                <text x="78" y="24" font-size="8" fill="#777" letter-spacing=".5">START FAILURE</text>
-                <!-- Status LEDs -->
-                <circle cx="210" cy="-4" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-                <circle cx="235" cy="-4" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-                <circle cx="260" cy="-4" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-                <circle cx="285" cy="-4" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-                <circle cx="310" cy="-4" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-                <!-- Icone power/battery sopra LED -->
-                <text x="200" y="-14" font-size="13">⊘</text>
-                <text x="225" y="-14" font-size="13">⚡</text>
-                <text x="250" y="-14" font-size="13">◇</text>
-                <text x="275" y="-14" font-size="13">▷</text>
-                <text x="298" y="-14" font-size="11">🔋</text>
-              </g>
-
-              <!-- ══ PRESSOSTATO (sinistra) ══ -->
-              <g transform="translate(60,355)">
-                <text x="0" y="0" font-family="monospace" font-size="8" fill="#bbb" text-anchor="end" letter-spacing=".3">
-                  <tspan x="105" dy="0">RICHIESTA AVVIAMENTO</tspan>
-                  <tspan x="105" dy="11">PRESSOSTATO/SENSORE</tspan>
-                </text>
-                <circle cx="120" cy="4" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-                <!-- Simbolo pressostato -->
-                <g transform="translate(136,-6)" stroke="#999" stroke-width="1.5" fill="none">
-                  <rect x="0" y="0" width="16" height="14" rx="1"/>
-                  <line x1="8" y1="14" x2="8" y2="24"/>
-                  <line x1="2" y1="24" x2="14" y2="24"/>
-                </g>
-                <text x="30" y="34" font-family="monospace" font-size="7" fill="#777" letter-spacing=".3">PRESSURE SWITCH/SENSOR</text>
-                <text x="50" y="43" font-family="monospace" font-size="7" fill="#777" letter-spacing=".3">START REQUEST</text>
-              </g>
-
-              <!-- ══ GALLEGGIANTE (destra) ══ -->
-              <g transform="translate(430,355)">
-                <!-- Simbolo galleggiante -->
-                <g transform="translate(88,-6)" stroke="#999" stroke-width="1.5" fill="none">
-                  <circle cx="8" cy="6" r="6"/>
-                  <line x1="8" y1="12" x2="8" y2="24"/>
-                  <line x1="2" y1="24" x2="14" y2="24"/>
-                </g>
-                <circle cx="118" cy="4" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-                <text x="140" y="-2" font-family="monospace" font-size="8" fill="#bbb" letter-spacing=".3">RICHIESTA AVVIAMENTO</text>
-                <text x="168" y="9" font-family="monospace" font-size="8" fill="#bbb" letter-spacing=".3">GALLEGGIANTE</text>
-                <text x="154" y="34" font-family="monospace" font-size="7" fill="#777" letter-spacing=".3">FLOAT SWITCH</text>
-                <text x="152" y="43" font-family="monospace" font-size="7" fill="#777" letter-spacing=".3">START REQUEST</text>
-              </g>
-
-              <!-- ══ STOP ══ -->
-              <g transform="translate(210,460)">
-                <text x="-58" y="-18" font-family="monospace" font-size="8" fill="#bbb" text-anchor="end" letter-spacing=".3">NON SPEGNERE IN</text>
-                <text x="-58" y="-8" font-family="monospace" font-size="8" fill="#bbb" text-anchor="end" letter-spacing=".3">CASO DI INCENDIO</text>
-                <text x="-58" y="8" font-family="monospace" font-size="7" fill="#777" text-anchor="end" letter-spacing=".3">DO NOT SWITCH OFF</text>
-                <text x="-58" y="17" font-family="monospace" font-size="7" fill="#777" text-anchor="end" letter-spacing=".3">IN THE EVENT OF FIRE</text>
-                <circle cx="0" cy="0" r="34" fill="none" stroke="#ea580c" stroke-width="3.5"/>
-                <circle cx="0" cy="0" r="26" fill="#4a4f5a"/>
-                <text x="0" y="-8" text-anchor="middle" font-size="14" fill="#ccc">☞</text>
-                <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="14" font-weight="900" fill="#ddd" letter-spacing="2">STOP</text>
-                <circle cx="0" cy="-48" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-              </g>
-
-              <!-- ══ START ══ -->
-              <g transform="translate(490,460)">
-                <circle cx="0" cy="0" r="34" fill="none" stroke="#ea580c" stroke-width="3.5"/>
-                <circle cx="0" cy="0" r="26" fill="#4a4f5a"/>
-                <text x="0" y="-8" text-anchor="middle" font-size="14" fill="#ccc">☞</text>
-                <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="14" font-weight="900" fill="#ddd" letter-spacing="1">START</text>
-                <circle cx="0" cy="-48" r="3.5" fill="url(#ledOn)" filter="url(#glow)"/>
-              </g>
-
-              <!-- CE -->
-              <text x="670" y="505" text-anchor="end" font-family="serif" font-size="16" fill="#888" letter-spacing="2">CE</text>
-            </svg>
           </div>
         </div>
 
@@ -548,22 +411,9 @@
     document.getElementById(elId).textContent = val || placeholder;
     updateSummary();
   }
-  function isReactoOrAltro(val) {
-    const v = val.toLowerCase();
-    return v.includes('reacto') || v.includes('altro') || v.includes('personalizzato') || v.includes('diesel');
-  }
   function updateModel() {
     const val = document.getElementById('in-model').value;
     document.getElementById('np-model').textContent = val;
-    const plate = document.getElementById('nameplate');
-    const panel = document.getElementById('panel-reacto');
-    if (isReactoOrAltro(val)) {
-      plate.style.display = 'none';
-      panel.style.display = 'block';
-    } else {
-      plate.style.display = '';
-      panel.style.display = 'none';
-    }
     updateSummary();
   }
   function updateSummary() {
@@ -600,16 +450,9 @@
     if (err) { alert('Logo non accettato: ' + err); return; }
     const reader = new FileReader();
     reader.onload = ev => {
-      // Targa classica
       document.getElementById('logo-preview').src = ev.target.result;
       document.getElementById('logo-preview').style.display = 'block';
       document.getElementById('logo-placeholder').style.display = 'none';
-      // Pannello Reacto
-      var panelImg = document.getElementById('panel-logo-img');
-      var panelTxt = document.getElementById('panel-logo-text');
-      panelImg.setAttribute('href', ev.target.result);
-      panelImg.style.display = 'block';
-      if (panelTxt) panelTxt.style.display = 'none';
     };
     reader.readAsDataURL(file);
   }
