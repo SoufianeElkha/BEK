@@ -22,20 +22,21 @@
     html { scroll-behavior: smooth; overflow-x: hidden; }
     body { font-family: 'Exo 2', sans-serif; color: var(--ink); background: var(--bg); transition: background .3s, color .3s; overflow-x: hidden; width: 100%; }
 
-    /* NAV — stile arancione come home page */
+    /* NAV — stile grigio/arancione come home page */
     nav {
       background: var(--accent);
-      display: flex; align-items: stretch;
+      display: flex; align-items: center; justify-content: space-between;
       position: sticky; top: 0; z-index: 100;
+      padding: 12px 40px;
     }
     [data-theme="dark"] nav { background: var(--accent-dark); }
-    .nav-logo { background: white; text-decoration: none; display: flex; align-items: center; flex-shrink: 0; padding: 16px 32px; }
-    .nav-logo img { height: 88px; width: auto; display: block; }
-    .nav-inner { flex: 1; display: flex; align-items: center; gap: 16px; padding: 0 24px; }
-    .nav-back { display: flex; align-items: center; gap: 6px; text-decoration: none; color: rgba(255,255,255,.85); font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,.3); transition: all .2s; margin-left: auto; }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 46px; width: auto; display: block; }
+    .nav-inner { display: flex; align-items: center; gap: 12px; }
+    .nav-back { display: flex; align-items: center; gap: 6px; text-decoration: none; color: rgba(255,255,255,.85); font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,.3); transition: all .2s; }
     .nav-back:hover { background: rgba(255,255,255,.18); color: white; }
-    .dark-toggle { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3); color: white; width: 36px; height: 36px; border-radius: 8px; cursor: pointer; font-size: 16px; transition: all .2s; }
-    .dark-toggle:hover { background: rgba(255,255,255,.28); }
+    .dark-toggle { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25); color: white; width: 36px; height: 36px; border-radius: 8px; cursor: pointer; font-size: 16px; transition: all .2s; display: flex; align-items: center; justify-content: center; }
+    .dark-toggle:hover { background: rgba(255,255,255,.25); }
 
     /* PAGE HEADER */
     .page-header { padding: 56px 24px 40px; max-width: 1200px; margin: 0 auto; }
@@ -140,10 +141,8 @@
     .privacy-note { font-size:11px; color:var(--muted); text-align:center; margin-top:10px; line-height:1.5; }
 
     @media (max-width:900px) {
-      nav { flex-direction: column; }
-      .nav-logo { padding: 12px 20px; justify-content: center; }
-      .nav-logo img { height: auto; width: min(240px, 55vw); }
-      .nav-inner { padding: 0 16px; height: 44px; justify-content: flex-end; }
+      nav { padding: 10px 16px; }
+      .nav-logo img { height: 38px; }
       .page-header { padding:40px 16px 28px; }
       .main-layout { padding:0 16px 60px; grid-template-columns:1fr; }
       .form-card { position:static; }
@@ -172,10 +171,10 @@
 </head>
 <body>
 
-<!-- NAV — stile arancione come home page -->
+<!-- NAV — stile arancione con logo BEK bianco -->
 <nav>
-  <a href="index.html" class="nav-logo" aria-label="BEK Electric Systems — Home">
-    <img src="assets/logo.svg" alt="BEK Electric Systems">
+  <a href="index.html" class="nav-logo" aria-label="BEK — Home">
+    <img src="assets/logo-bek-white.svg" alt="BEK">
   </a>
   <div class="nav-inner">
     <a href="index.html" class="nav-back">
