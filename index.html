@@ -299,13 +299,14 @@
 
     /* RESPONSIVE */
     @media (max-width: 960px) {
+      header { flex-direction: column; }
+      .topbar-logo { padding: 12px 20px; justify-content: center; }
+      .topbar-logo img { height: auto; width: min(240px, 55vw); }
       .topbar-links { display: none; }
       .topbar-action-link { display: none; }
-      .topbar-logo { padding: 10px 16px; }
-      .topbar-logo img { height: auto; width: min(200px, 40vw); }
-      .topbar-inner { padding: 0 14px; gap: 10px; justify-content: flex-end; }
+      .topbar-inner { padding: 0 16px; height: 48px; gap: 10px; justify-content: flex-end; }
       .hamburger { display: flex; }
-      .btn-topbar { padding: 8px 16px; font-size: .8rem; }
+      .btn-topbar { padding: 8px 18px; font-size: .82rem; }
       .dark-toggle { display: none; }
       .chi-siamo-grid { grid-template-columns: 1fr; }
       .chi-siamo-visual { aspect-ratio: 16/7; }
@@ -328,10 +329,10 @@
       .steps-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
-      .topbar-logo { padding: 8px 12px; }
-      .topbar-logo img { width: min(180px, 44vw); }
-      .topbar-inner { padding: 0 10px; gap: 8px; }
-      .btn-topbar { padding: 7px 14px; font-size: .75rem; }
+      .topbar-logo { padding: 10px 16px; }
+      .topbar-logo img { width: min(220px, 58vw); }
+      .topbar-inner { padding: 0 12px; height: 44px; }
+      .btn-topbar { padding: 7px 16px; font-size: .78rem; }
     }
 
     /* ─── ANIMATIONS ─── */
@@ -827,7 +828,7 @@
         <div class="step-icon">1</div>
         <div class="step-num">1</div>
         <h4>Richiedi il preventivo</h4>
-        <p>Compila il <a href="preventivo.html" style="color:var(--accent);font-weight:600;">modulo online</a>, scrivici su <a href="https://wa.me/393505392789" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;">WhatsApp</a>, chiamaci o inviaci una <a href="mailto:info@bekelectric.it" style="color:var(--accent);font-weight:600;">email</a>. Risposta entro 24 ore lavorative.</p>
+        <p>Compila il <a href="preventivo.html" style="color:var(--accent);font-weight:600;">modulo online</a>, scrivici su <a href="https://wa.me/393505392789" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;">WhatsApp</a>, chiamaci o inviaci una <a href="mailto:info@bekelectric.com" style="color:var(--accent);font-weight:600;">email</a>. Risposta entro 24 ore lavorative.</p>
       </div>
       <div class="step-card rv">
         <div class="step-icon">2</div>
@@ -1568,13 +1569,13 @@ if (document.getElementById('productsGrid')) loadProducts();
     </a>
 
     <!-- Email -->
-    <a href="mailto:info@bekelectric.it?subject=Richiesta%20preventivo%20quadro%20antincendio"
+    <a href="mailto:info@bekelectric.com?subject=Richiesta%20preventivo%20quadro%20antincendio"
        style="display:flex;align-items:center;gap:10px;background:var(--ink);color:white;text-decoration:none;
               padding:10px 16px 10px 14px;border-radius:30px;font-size:.85rem;font-weight:700;
               box-shadow:0 3px 12px rgba(0,0,0,.25);white-space:nowrap;transition:transform .15s;"
        onmouseover="this.style.transform='translateX(-4px)'" onmouseout="this.style.transform=''">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-      info@bekelectric.it
+      info@bekelectric.com
     </a>
 
   </div>
