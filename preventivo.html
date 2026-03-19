@@ -140,9 +140,10 @@
     .privacy-note { font-size:11px; color:var(--muted); text-align:center; margin-top:10px; line-height:1.5; }
 
     @media (max-width:900px) {
-      .nav-logo { padding: 10px 16px; }
-      .nav-logo img { height: auto; width: min(200px, 40vw); }
-      .nav-inner { padding: 0 16px; }
+      nav { flex-direction: column; }
+      .nav-logo { padding: 12px 20px; justify-content: center; }
+      .nav-logo img { height: auto; width: min(240px, 55vw); }
+      .nav-inner { padding: 0 16px; height: 44px; justify-content: flex-end; }
       .page-header { padding:40px 16px 28px; }
       .main-layout { padding:0 16px 60px; grid-template-columns:1fr; }
       .form-card { position:static; }
