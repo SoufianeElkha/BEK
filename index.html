@@ -28,24 +28,63 @@
     html { scroll-behavior: smooth; overflow-x: hidden; }
     body { font-family: 'Exo 2', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; transition: background .3s, color .3s; overflow-x: hidden; width: 100%; }
 
-    /* PREVIEW BANNER */
-
-    /* HEADER — banda arancione, area logo bianca a sinistra */
-    header { position: sticky; top: 0; z-index: 100; background: var(--accent); display: flex; align-items: stretch; width: 100%; max-width: 100vw; }
-    .topbar-logo { background: white; text-decoration: none; display: flex; align-items: center; flex-shrink: 0; padding: 16px 32px; }
-    .topbar-logo img { height: 88px; width: auto; display: block; }
-    .topbar-inner { flex: 1; display: flex; align-items: center; gap: 16px; padding: 0 24px 0 16px; }
-    .topbar-links { display: flex; align-items: center; gap: 2px; flex: 1; }
-    .topbar-links a { color: rgba(255,255,255,.93); text-decoration: none; font-size: .9rem; font-weight: 500; padding: 7px 12px; border-radius: 6px; transition: background .15s; white-space: nowrap; }
-    .topbar-links a:hover { background: rgba(255,255,255,.18); color: white; }
-    .topbar-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-    .topbar-action-link { color: rgba(255,255,255,.85); text-decoration: none; font-size: .8rem; display: flex; align-items: center; gap: 4px; padding: 5px 8px; border-radius: 6px; transition: background .15s; white-space: nowrap; }
-    .topbar-action-link:hover { background: rgba(255,255,255,.18); color: white; }
-    .btn-topbar { background: white; color: var(--accent); border: none; padding: 9px 20px; border-radius: 8px; font-size: .875rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .15s; white-space: nowrap; }
-    .btn-topbar:hover { background: rgba(255,255,255,.88); }
-    .dark-toggle { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3); color: white; width: 36px; height: 36px; border-radius: 7px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: .9rem; transition: background .15s; }
+    /* HEADER — DAB Pumps style: transparent → orange on scroll */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: transparent;
+      transition: background .4s ease, box-shadow .4s ease;
+      width: 100%; max-width: 100vw;
+    }
+    header.scrolled {
+      background: var(--accent);
+      box-shadow: 0 2px 24px rgba(0,0,0,.18);
+    }
+    .header-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px;
+      transition: padding .3s ease;
+    }
+    header.scrolled .header-inner { padding: 10px 40px; }
+    .header-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .header-logo img { height: 52px; width: auto; display: block; transition: height .3s ease, opacity .3s ease; }
+    header.scrolled .header-logo img { height: 44px; }
+    .header-nav { display: flex; align-items: center; gap: 4px; }
+    .header-nav a {
+      color: rgba(255,255,255,.9); text-decoration: none;
+      font-size: .88rem; font-weight: 500; padding: 8px 14px;
+      border-radius: 6px; transition: background .15s, color .15s;
+      white-space: nowrap; text-shadow: 0 1px 3px rgba(0,0,0,.3);
+    }
+    header.scrolled .header-nav a { text-shadow: none; }
+    .header-nav a:hover { background: rgba(255,255,255,.18); color: white; }
+    .header-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .btn-topbar {
+      background: rgba(255,255,255,.15); color: white;
+      border: 1.5px solid rgba(255,255,255,.4);
+      padding: 9px 22px; border-radius: 8px; font-size: .875rem;
+      font-weight: 700; cursor: pointer; text-decoration: none;
+      transition: all .2s; white-space: nowrap; backdrop-filter: blur(6px);
+    }
+    .btn-topbar:hover { background: white; color: var(--accent); border-color: white; }
+    header.scrolled .btn-topbar {
+      background: white; color: var(--accent); border-color: white;
+    }
+    header.scrolled .btn-topbar:hover { background: rgba(255,255,255,.88); }
+    .dark-toggle {
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25);
+      color: white; width: 36px; height: 36px; border-radius: 7px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; transition: background .15s;
+    }
     .dark-toggle:hover { background: rgba(255,255,255,.28); }
-    .hamburger { display: none; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); color: white; width: 36px; height: 36px; border-radius: 8px; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 4px; padding: 8px; }
+    .hamburger {
+      display: none; background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.3); color: white;
+      width: 36px; height: 36px; border-radius: 8px; cursor: pointer;
+      align-items: center; justify-content: center;
+      flex-direction: column; gap: 4px; padding: 8px;
+    }
     .hamburger span { display: block; width: 18px; height: 2px; background: white; border-radius: 2px; transition: all .2s; }
 
     /* MOBILE NAV */
@@ -56,20 +95,54 @@
     .mobile-nav-cta { margin-top: 16px; }
     .mobile-nav-close { position: absolute; top: 16px; right: 16px; background: none; border: 1px solid var(--border); color: var(--ink2); width: 36px; height: 36px; border-radius: 8px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
 
-    /* HERO */
-    .hero { padding: 80px 24px 64px; text-align: center; background: var(--bg); }
-    .hero-inner { max-width: 760px; margin: 0 auto; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: color-mix(in srgb, var(--accent) 10%, transparent); color: var(--accent-dark); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); padding: 5px 14px; border-radius: 100px; font-size: .8rem; font-weight: 600; letter-spacing: .04em; margin-bottom: 20px; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; color: var(--ink); line-height: 1.15; letter-spacing: -.03em; margin-bottom: 8px; }
-    .hero h1 span { color: var(--ink); }
+    /* HERO — fullscreen image like DAB Pumps */
+    .hero {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; text-align: center; overflow: hidden;
+      padding: 120px 24px 80px; background: #111;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-size: cover; background-position: center center;
+      transition: transform 8s ease-out;
+    }
+    .hero-bg-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 40%, rgba(0,0,0,.5) 100%);
+    }
+    .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.1); color: rgba(255,255,255,.9);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 6px 18px; border-radius: 100px;
+      font-size: .8rem; font-weight: 600; letter-spacing: .05em;
+      margin-bottom: 24px; backdrop-filter: blur(8px);
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 3.6rem); font-weight: 900;
+      color: white; line-height: 1.12; letter-spacing: -.03em; margin-bottom: 12px;
+      text-shadow: 0 2px 20px rgba(0,0,0,.4);
+    }
     .hero h1 .hero-fire { color: unset; }
-    .hero-subtitle-tag { font-size: 1.1rem; font-weight: 600; color: var(--muted); margin-bottom: 16px; }
-    .hero p { font-size: 1.05rem; color: var(--ink2); max-width: 560px; margin: 0 auto 32px; }
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-    .btn-primary { background: var(--accent); color: white; border: none; padding: 13px 28px; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .15s, transform .1s, box-shadow .15s; display: inline-flex; align-items: center; gap: 8px; }
+    .hero-subtitle-tag {
+      font-size: 1.1rem; font-weight: 600;
+      color: rgba(255,255,255,.8); margin-bottom: 20px;
+      text-shadow: 0 1px 8px rgba(0,0,0,.3);
+    }
+    .hero p {
+      font-size: 1.08rem; color: rgba(255,255,255,.75);
+      max-width: 600px; margin: 0 auto 36px;
+      text-shadow: 0 1px 6px rgba(0,0,0,.2);
+    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .btn-primary { background: var(--accent); color: white; border: none; padding: 14px 32px; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .15s, transform .1s, box-shadow .15s; display: inline-flex; align-items: center; gap: 8px; }
     .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 35%, transparent); }
-    .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--border); padding: 11px 24px; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: border-color .15s, color .15s; display: inline-flex; align-items: center; gap: 8px; }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-outline { background: rgba(255,255,255,.1); color: white; border: 2px solid rgba(255,255,255,.35); padding: 12px 28px; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all .2s; display: inline-flex; align-items: center; gap: 8px; backdrop-filter: blur(6px); }
+    .btn-outline:hover { background: white; color: var(--accent); border-color: white; }
+    /* btn-outline in non-hero contexts */
+    section .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--border); backdrop-filter: none; }
+    section .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
 
     /* SCROLL ZOOM PANEL */
     .scroll-zoom-section { position: relative; height: min(55vh, 520px); min-height: 380px; overflow: hidden; background: var(--bg); }
@@ -299,15 +372,12 @@
 
     /* RESPONSIVE */
     @media (max-width: 960px) {
-      header { flex-direction: column; }
-      .topbar-logo { padding: 12px 20px; justify-content: center; }
-      .topbar-logo img { height: auto; width: min(240px, 55vw); }
-      .topbar-links { display: none; }
-      .topbar-action-link { display: none; }
-      .topbar-inner { padding: 0 16px; height: 48px; gap: 10px; justify-content: flex-end; }
+      .header-inner { padding: 14px 20px; }
+      header.scrolled .header-inner { padding: 8px 20px; }
+      .header-nav { display: none; }
       .hamburger { display: flex; }
-      .btn-topbar { padding: 8px 18px; font-size: .82rem; }
-      .dark-toggle { display: flex; }
+      .header-logo img { height: 44px; }
+      header.scrolled .header-logo img { height: 38px; }
       .chi-siamo-grid { grid-template-columns: 1fr; }
       .chi-siamo-visual { aspect-ratio: 16/7; }
       .perche-grid { grid-template-columns: 1fr 1fr; }
@@ -318,20 +388,22 @@
       .steps-grid::before { display: none; }
     }
     @media (max-width: 640px) {
+      .header-inner { padding: 12px 16px; }
+      .header-logo img { height: 38px; }
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .perche-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 28px; }
       .form-row { grid-template-columns: 1fr; }
-      .hero { padding: 48px 20px 40px; }
+      .hero { padding: 100px 20px 60px; min-height: 90vh; }
+      .hero h1 { font-size: clamp(1.8rem, 7vw, 2.6rem); }
       section { padding: 56px 20px; }
       .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
       .testi-grid { grid-template-columns: 1fr; }
       .steps-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
-      .topbar-logo { padding: 10px 16px; }
-      .topbar-logo img { width: min(220px, 58vw); }
-      .topbar-inner { padding: 0 12px; height: 44px; }
+      .header-inner { padding: 10px 12px; }
+      .header-logo img { height: 34px; }
       .btn-topbar { padding: 7px 16px; font-size: .78rem; }
     }
 
@@ -341,7 +413,7 @@
       100% { background-position: 300% 50%; }
     }
     .hero-fire {
-      background: linear-gradient(90deg, #F97316 0%, #EF4444 30%, #FBBF24 55%, #EF4444 75%, #F97316 100%);
+      background: linear-gradient(90deg, #F97316 0%, #FBBF24 30%, #ffffff 55%, #FBBF24 75%, #F97316 100%);
       background-size: 300% 100%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -370,17 +442,11 @@
     .rv.rvl { transform: translateX(-44px); }
     .rv.rvr { transform: translateX(44px); }
     .rv.vis { opacity: 1 !important; transform: none !important; }
-    /* hero animated bg */
-    .hero { position: relative; overflow: hidden; }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse 80% 60% at 50% -10%, color-mix(in srgb, var(--accent) 14%, transparent) 0%, transparent 70%);
-      animation: heroGlow 6s ease-in-out infinite alternate;
-    }
-    @keyframes heroGlow {
-      from { opacity: .6; transform: scaleX(1); }
-      to   { opacity: 1;  transform: scaleX(1.15); }
+    /* hero subtle ken-burns on bg */
+    .hero-bg { animation: heroPan 20s ease-in-out infinite alternate; }
+    @keyframes heroPan {
+      from { transform: scale(1); }
+      to   { transform: scale(1.06); }
     }
     /* stat counter glow */
     .stat-val { display: inline-block; }
@@ -410,25 +476,21 @@
 <body>
 
 
-<!-- HEADER: area bianca logo + banda arancione link/azioni -->
+<!-- HEADER: transparent → orange on scroll (DAB Pumps style) -->
 <header id="main-header">
-  <!-- AREA BIANCA: solo il logo -->
-  <a href="#" class="topbar-logo" aria-label="BEK Electric Systems — Home">
-    <img src="assets/logo.svg" alt="BEK Electric Systems">
-  </a>
-  <!-- AREA ARANCIONE: link + azioni -->
-  <div class="topbar-inner">
-    <div class="topbar-links">
+  <div class="header-inner">
+    <a href="#" class="header-logo" aria-label="BEK Electric Systems — Home">
+      <img src="assets/logo-white.svg" alt="BEK Electric Systems">
+    </a>
+    <nav class="header-nav">
       <a href="#prodotti">Prodotti</a>
       <a href="#chi-siamo">Chi Siamo</a>
       <a href="#perche-noi">Perché Noi</a>
       <a href="#certificazioni">Certificazioni</a>
       <a href="#faq">FAQ</a>
       <a href="#contatti">Contatti</a>
-    </div>
-    <div class="topbar-actions">
-      <a href="mailto:info@bekelectric.com" class="topbar-action-link">info@bekelectric.com</a>
-      <a href="tel:+393505392789" class="topbar-action-link">+39 350 539 2789</a>
+    </nav>
+    <div class="header-actions">
       <button class="dark-toggle" id="darkToggle" aria-label="Modalità scura">☽</button>
       <a href="preventivo.html" class="btn-topbar">Preventivo</a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -441,7 +503,7 @@
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-nav-close" id="mobileNavClose">✕</button>
-  <div style="margin-bottom:12px"><img src="assets/logo.svg" alt="BEK" style="height:40px;width:auto"></div>
+  <div style="margin-bottom:12px"><img src="assets/logo.svg" alt="BEK" style="height:44px;width:auto"></div>
   <a href="#prodotti" class="mobile-link">Prodotti</a>
   <a href="#chi-siamo" class="mobile-link">Chi Siamo</a>
   <a href="#perche-noi" class="mobile-link">Perché Noi</a>
@@ -453,12 +515,16 @@
   <a href="preventivo.html" class="btn-primary mobile-nav-cta">Richiedi Preventivo</a>
 </div>
 
-<!-- HERO -->
+<!-- HERO — fullscreen image -->
 <section class="hero" id="hero">
+  <!-- IMMAGINE HERO: sostituisci assets/hero-placeholder.svg con la tua foto → assets/hero-bg.jpg -->
+  <div class="hero-bg" style="background-image:url('assets/hero-placeholder.svg')"></div>
+  <div class="hero-bg-overlay"></div>
   <div class="hero-inner">
+    <div class="hero-badge">EN 12845 · Qualità certificata</div>
     <h1 id="heroTitle">Quadri Elettrici per<br>Impianti <span>Antincendio</span></h1>
-    <div class="hero-subtitle-tag">Conformi EN 12845 · Qualità certificata · Consegna rapida</div>
-    <p>BEK Electric Systems progetta e produce quadri di comando per elettropompe antincendio. Materiali premium, test funzionali completi su ogni unità, assistenza diretta senza intermediari.</p>
+    <div class="hero-subtitle-tag">Conformi EN 12845 · Consegna in 8 giorni · Prezzi imbattibili</div>
+    <p>BEK Electric Systems progetta e produce quadri di comando per elettropompe e motopompe antincendio. Materiali premium, test funzionali completi, assistenza diretta.</p>
     <div class="hero-ctas">
       <a href="#prodotti" class="btn-primary">Scopri i Prodotti</a>
       <a class="btn-outline" href="preventivo.html">Richiedi Preventivo</a>
@@ -1229,7 +1295,22 @@ hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
 mobileNavClose.addEventListener('click', closeMobileNav);
 document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', closeMobileNav));
 
-// header già sticky top:0
+/* ─── HEADER SCROLL: transparent → orange ─── */
+(function() {
+  const header = document.getElementById('main-header');
+  const hero = document.getElementById('hero');
+  function onScroll() {
+    if (!hero) return;
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    if (heroBottom <= 80) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
 
 /* ─── PRODUCTS DATA (embedded — no server required) ─── */
 const _PRODUCTS_DATA=[{"code":"6003011","name":"EGE SMART 3","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":3,"hp":5,"currentMax":7,"box":{"h":500,"l":400,"w":200},"weight":16.8},{"code":"6005511","name":"EGE SMART 5,5","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":5.5,"hp":7.5,"currentMax":12,"box":{"h":500,"l":400,"w":200},"weight":16.8},{"code":"6007511","name":"EGE SMART 7,5","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":7.5,"hp":10,"currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":17},{"code":"6011011","name":"EGE SMART 11","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":11,"hp":15,"currentMax":24,"box":{"h":500,"l":400,"w":200},"weight":17.6},{"code":"6011021","name":"EGE SMART 11 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":11,"hp":15,"currentMax":24,"box":{"h":500,"l":400,"w":200},"weight":18.3},{"code":"6015011","name":"EGE SMART 15","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":15,"hp":20,"currentMax":32,"box":{"h":500,"l":400,"w":200},"weight":17.8},{"code":"6015021","name":"EGE SMART 15 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":15,"hp":20,"currentMax":32,"box":{"h":500,"l":400,"w":200},"weight":18},{"code":"6018511","name":"EGE SMART 18,5","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":18.5,"hp":25,"currentMax":36,"box":{"h":500,"l":400,"w":200},"weight":18.5},{"code":"6018521","name":"EGE SMART 18,5 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":18.5,"hp":25,"currentMax":36,"box":{"h":500,"l":400,"w":200},"weight":18.5},{"code":"6022011","name":"EGE SMART 22","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":22,"hp":30,"currentMax":40,"box":{"h":500,"l":400,"w":200},"weight":19},{"code":"6022021","name":"EGE SMART 22 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":22,"hp":30,"currentMax":40,"box":{"h":500,"l":400,"w":200},"weight":19.2},{"code":"6030021","name":"EGE SMART 30 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":30,"hp":40,"currentMax":60,"box":{"h":500,"l":400,"w":200},"weight":20.1},{"code":"6037022","name":"EGE SMART 37 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":37,"hp":50,"currentMax":70,"box":{"h":700,"l":500,"w":250},"weight":33.6},{"code":"6045022","name":"EGE SMART 45 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":45,"hp":60,"currentMax":80,"box":{"h":700,"l":500,"w":250},"weight":34},{"code":"6055022","name":"EGE SMART 55 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":55,"hp":75,"currentMax":100,"box":{"h":700,"l":500,"w":250},"weight":38.5},{"code":"6075023","name":"EGE SMART 75 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":75,"hp":100,"currentMax":132,"box":{"h":800,"l":600,"w":250},"weight":54.5},{"code":"6090023","name":"EGE SMART 90 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":90,"hp":125,"currentMax":160,"box":{"h":800,"l":600,"w":250},"weight":64},{"code":"6110023","name":"EGE SMART 110 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":110,"hp":150,"currentMax":200,"box":{"h":800,"l":600,"w":250},"weight":85},{"code":"6132024","name":"EGE SMART 132 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":132,"hp":200,"currentMax":240,"box":{"h":1000,"l":800,"w":300},"weight":95},{"code":"6160024","name":"EGE SMART 160 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":160,"hp":200,"currentMax":296,"box":{"h":1000,"l":800,"w":300},"weight":100}];
