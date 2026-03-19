@@ -1,70 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Livello_2" data-name="Livello 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166.13 56.79">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166.13 56.79">
   <defs>
     <style>
-      .cls-1 {
+      .txt-electric {
         fill: #1a1a1a;
-        font-family: Helvetica-Bold, Helvetica;
+        font-family: Helvetica-Bold, Helvetica, Arial, sans-serif;
         font-size: 15.24px;
         font-weight: 700;
       }
-
-      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
-        isolation: isolate;
-      }
-
-      .cls-2 {
-        fill: #ff6b00;
-        font-family: Bauhaus93, 'Bauhaus 93';
-        font-size: 40px;
-      }
-
-      .cls-6 {
-        stroke-width: 1.39px;
-      }
-
-      .cls-6, .cls-7 {
-        fill: none;
-        stroke: #ff6b00;
-        stroke-miterlimit: 2.77;
-      }
-
-      .cls-3 {
+      .txt-systems {
+        fill: #1a1a1a;
+        font-family: Helvetica, Arial, sans-serif;
         font-size: 12.47px;
         letter-spacing: .22em;
       }
-
-      .cls-3, .cls-5 {
-        font-family: Helvetica, Helvetica;
-      }
-
-      .cls-5 {
+      .txt-sub {
+        fill: #1a1a1a;
+        font-family: Helvetica, Arial, sans-serif;
         font-size: 4.85px;
         letter-spacing: .57em;
       }
-
-      .cls-7 {
+      .line-sep {
+        fill: none;
+        stroke: #ff6b00;
+        stroke-miterlimit: 2.77;
         stroke-linecap: round;
         stroke-width: 2.08px;
       }
+      .line-hr {
+        fill: none;
+        stroke: #ff6b00;
+        stroke-miterlimit: 2.77;
+        stroke-width: 1.39px;
+      }
     </style>
   </defs>
-  <g id="Livello_1-2" data-name="Livello 1">
-    <g>
-      <g class="cls-4">
-        <text class="cls-2" transform="translate(0 33.34)"><tspan x="0" y="0">BEK</tspan></text>
-      </g>
-      <line class="cls-7" x1="72.37" y1="3.39" x2="72.37" y2="35.26"/>
-      <g class="cls-4">
-        <text class="cls-1" transform="translate(82.76 18.63)"><tspan x="0" y="0">Electric</tspan></text>
-      </g>
-      <g class="cls-4">
-        <text class="cls-3" transform="translate(82.76 33.88)"><tspan x="0" y="0">Systems</tspan></text>
-      </g>
-      <line class="cls-6" x1="1" y1="46.08" x2="166.06" y2="46.08"/>
-      <g class="cls-4">
-        <text class="cls-5" transform="translate(1 55.09)"><tspan x="0" y="0">QUADRI ELETTRICI • AUTOMAZIONE</tspan></text>
-      </g>
+  <g>
+    <!-- B - path outline (Bauhaus 93 style) -->
+    <g fill="#ff6b00">
+      <!-- Letter B -->
+      <path d="M0,3.5 L0,33 L5.5,33 L5.5,19.5 L12,19.5 C16.5,19.5 19.5,21.5 19.5,26 C19.5,30.5 16.5,33 12,33 L18,33 C22,33 25,29.5 25,25.5 C25,21.5 22.5,19 19,18.2 C22,17.2 23.5,14.5 23.5,11.5 C23.5,7 20.5,3.5 15.5,3.5 L0,3.5 Z M5.5,8 L14,8 C17,8 18.5,9.5 18.5,12 C18.5,14.5 17,16.2 14,16.2 L5.5,16.2 L5.5,8 Z"/>
+      <!-- Letter E -->
+      <path d="M28,3.5 L28,33 L50,33 L50,28.5 L33.5,28.5 L33.5,20 L47,20 L47,15.5 L33.5,15.5 L33.5,8 L49.5,8 L49.5,3.5 L28,3.5 Z"/>
+      <!-- Letter K -->
+      <path d="M53,3.5 L53,33 L58.5,33 L58.5,21 L67,33 L74,33 L63.5,19.5 L73,3.5 L66.5,3.5 L58.5,17 L58.5,3.5 L53,3.5 Z"/>
     </g>
+
+    <!-- Vertical separator line -->
+    <line class="line-sep" x1="78" y1="3.39" x2="78" y2="35.26"/>
+
+    <!-- Electric -->
+    <text class="txt-electric" x="86" y="18.63">Electric</text>
+
+    <!-- Systems -->
+    <text class="txt-systems" x="86" y="33.88">Systems</text>
+
+    <!-- Horizontal line -->
+    <line class="line-hr" x1="1" y1="46.08" x2="166.06" y2="46.08"/>
+
+    <!-- Subtitle -->
+    <text class="txt-sub" x="1" y="55.09">QUADRI ELETTRICI • AUTOMAZIONE</text>
   </g>
 </svg>
