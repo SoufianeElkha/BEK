@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1a1a2e"/>
-      <stop offset="100%" stop-color="#16213e"/>
+      <stop offset="0%" stop-color="#5A5A5D"/>
+      <stop offset="100%" stop-color="#3D3D40"/>
     </linearGradient>
     <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#d4d4d8"/>
@@ -12,7 +12,7 @@
   <!-- Background -->
   <rect width="1920" height="1080" fill="url(#bg)"/>
   <!-- Floor reflection -->
-  <rect x="0" y="750" width="1920" height="330" fill="#0f172a" opacity=".5"/>
+  <rect x="0" y="750" width="1920" height="330" fill="#2D2D30" opacity=".5"/>
   <!-- Main panel enclosure -->
   <rect x="660" y="180" width="600" height="520" rx="8" fill="url(#panel)" stroke="#71717a" stroke-width="3"/>
   <!-- Panel door -->
