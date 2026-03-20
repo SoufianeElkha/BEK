@@ -43,7 +43,7 @@
     .search-in:focus{border-color:rgba(244,121,32,.4)}
     .count-lbl{font-size:.78rem;color:rgba(255,255,255,.3);margin-left:auto;white-space:nowrap}
 
-    .tbl-wrap{max-width:1320px;margin:0 auto;padding:0 40px 80px}
+    .tbl-wrap{max-width:1320px;margin:0 auto;padding:0 40px 80px;overflow-x:auto}
     .tbl{width:100%;border-collapse:collapse;border:1px solid rgba(255,255,255,.06)}
     .tbl thead tr{background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.08)}
     .tbl th{padding:12px 16px;text-align:left;font-size:.62rem;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
@@ -65,6 +65,7 @@
     .td-sub{color:rgba(255,255,255,.35);font-size:.82rem}
     .td-dims{font-size:.82rem;color:rgba(255,255,255,.3)}
     .td-vol{font-size:.82rem;color:rgba(255,255,255,.3)}
+    .td-price{font-weight:700;color:#F47920;white-space:nowrap;font-size:.88rem}
     .btn-prev{background:#F47920;color:#fff;border:none;padding:8px 18px;font-family:'Exo 2',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;white-space:nowrap;transition:background .2s;letter-spacing:.05em}
     .btn-prev:hover{background:#e06b15}
 
@@ -140,6 +141,7 @@
         <th>Tensione</th>
         <th>Dim. H×L×P (mm)</th>
         <th>Peso</th>
+        <th>Prezzo di listino</th>
         <th></th>
       </tr>
     </thead>
@@ -159,7 +161,7 @@
 </div>
 
 <script>
-var PRODUCTS=[{"code":"6003011","name":"EGE SMART 3","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":3,"hp":5,"currentMax":7,"box":{"h":500,"l":400,"w":200},"weight":16.8},{"code":"6005511","name":"EGE SMART 5,5","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":5.5,"hp":7.5,"currentMax":12,"box":{"h":500,"l":400,"w":200},"weight":16.8},{"code":"6007511","name":"EGE SMART 7,5","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":7.5,"hp":10,"currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":17},{"code":"6011011","name":"EGE SMART 11","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":11,"hp":15,"currentMax":24,"box":{"h":500,"l":400,"w":200},"weight":17.6},{"code":"6011021","name":"EGE SMART 11 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":11,"hp":15,"currentMax":24,"box":{"h":500,"l":400,"w":200},"weight":18.3},{"code":"6015011","name":"EGE SMART 15","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":15,"hp":20,"currentMax":32,"box":{"h":500,"l":400,"w":200},"weight":17.8},{"code":"6015021","name":"EGE SMART 15 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":15,"hp":20,"currentMax":32,"box":{"h":500,"l":400,"w":200},"weight":18},{"code":"6018511","name":"EGE SMART 18,5","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":18.5,"hp":25,"currentMax":36,"box":{"h":500,"l":400,"w":200},"weight":18.5},{"code":"6018521","name":"EGE SMART 18,5 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":18.5,"hp":25,"currentMax":36,"box":{"h":500,"l":400,"w":200},"weight":18.5},{"code":"6022011","name":"EGE SMART 22","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":22,"hp":30,"currentMax":40,"box":{"h":500,"l":400,"w":200},"weight":19},{"code":"6022021","name":"EGE SMART 22 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":22,"hp":30,"currentMax":40,"box":{"h":500,"l":400,"w":200},"weight":19},{"code":"6030021","name":"EGE SMART 30 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":30,"hp":40,"currentMax":55,"box":{"h":800,"l":600,"w":250},"weight":32},{"code":"6037021","name":"EGE SMART 37 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":37,"hp":50,"currentMax":68,"box":{"h":800,"l":600,"w":250},"weight":34},{"code":"6045021","name":"EGE SMART 45 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":45,"hp":60,"currentMax":80,"box":{"h":800,"l":600,"w":250},"weight":36},{"code":"6055021","name":"EGE SMART 55 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":55,"hp":75,"currentMax":100,"box":{"h":800,"l":600,"w":250},"weight":38},{"code":"6075021","name":"EGE SMART 75 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":75,"hp":100,"currentMax":135,"box":{"h":1000,"l":800,"w":300},"weight":56},{"code":"6090021","name":"EGE SMART 90 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":90,"hp":120,"currentMax":160,"box":{"h":1000,"l":800,"w":300},"weight":60},{"code":"6110021","name":"EGE SMART 110 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":110,"hp":150,"currentMax":196,"box":{"h":1000,"l":800,"w":300},"weight":65},{"code":"6132021","name":"EGE SMART 132 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":132,"hp":180,"currentMax":233,"box":{"h":1200,"l":800,"w":300},"weight":75},{"code":"6160021","name":"EGE SMART 160 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":160,"hp":218,"currentMax":280,"box":{"h":1200,"l":800,"w":300},"weight":80}];
+var PRODUCTS=[{"code":"10100341","name":"EGE SMART 3","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":3,"hp":5,"currentMax":7,"box":{"h":500,"l":400,"w":200},"weight":16.8,"price":605.00},{"code":"10100541","name":"EGE SMART 5,5","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":5.5,"hp":7.5,"currentMax":12,"box":{"h":500,"l":400,"w":200},"weight":16.8,"price":610.00},{"code":"10100741","name":"EGE SMART 7,5","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":7.5,"hp":10,"currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":17,"price":615.00},{"code":"10101141","name":"EGE SMART 11","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":11,"hp":15,"currentMax":24,"box":{"h":500,"l":400,"w":200},"weight":17.6,"price":660.00},{"code":"10101142","name":"EGE SMART 11 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":11,"hp":15,"currentMax":24,"box":{"h":500,"l":400,"w":200},"weight":18.3,"price":689.99},{"code":"10101541","name":"EGE SMART 15","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":15,"hp":20,"currentMax":32,"box":{"h":500,"l":400,"w":200},"weight":17.8,"price":660.00},{"code":"10101542","name":"EGE SMART 15 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":15,"hp":20,"currentMax":32,"box":{"h":500,"l":400,"w":200},"weight":18,"price":710.00},{"code":"10101841","name":"EGE SMART 18,5","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":18.5,"hp":25,"currentMax":36,"box":{"h":500,"l":400,"w":200},"weight":18.5,"price":670.00},{"code":"10101842","name":"EGE SMART 18,5 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":18.5,"hp":25,"currentMax":36,"box":{"h":500,"l":400,"w":200},"weight":18.5,"price":715.00},{"code":"10102241","name":"EGE SMART 22","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":22,"hp":30,"currentMax":40,"box":{"h":500,"l":400,"w":200},"weight":19,"price":720.00},{"code":"10102242","name":"EGE SMART 22 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":22,"hp":30,"currentMax":40,"box":{"h":500,"l":400,"w":200},"weight":19.2,"price":740.10},{"code":"10103042","name":"EGE SMART 30 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":30,"hp":40,"currentMax":60,"box":{"h":500,"l":400,"w":200},"weight":20.1,"price":810.00},{"code":"10103742","name":"EGE SMART 37 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":37,"hp":50,"currentMax":70,"box":{"h":700,"l":500,"w":250},"weight":33.6,"price":1050.00},{"code":"10104542","name":"EGE SMART 45 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":45,"hp":60,"currentMax":80,"box":{"h":700,"l":500,"w":250},"weight":34,"price":1070.00},{"code":"10105542","name":"EGE SMART 55 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":55,"hp":75,"currentMax":100,"box":{"h":700,"l":500,"w":250},"weight":38.5,"price":1320.09},{"code":"10107542","name":"EGE SMART 75 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":75,"hp":100,"currentMax":132,"box":{"h":800,"l":600,"w":250},"weight":54.5,"price":1545.00},{"code":"10109042","name":"EGE SMART 90 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":90,"hp":125,"currentMax":160,"box":{"h":800,"l":600,"w":250},"weight":64,"price":1809.97},{"code":"10111042","name":"EGE SMART 110 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":110,"hp":150,"currentMax":200,"box":{"h":800,"l":600,"w":250},"weight":85,"price":2064.70},{"code":"10113242","name":"EGE SMART 132 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":132,"hp":200,"currentMax":240,"box":{"h":1000,"l":800,"w":300},"weight":95,"price":2620.00},{"code":"10116042","name":"EGE SMART 160 Y/D","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":160,"hp":200,"currentMax":296,"box":{"h":1000,"l":800,"w":300},"weight":100,"price":4200.00}];
 
 var activeCat='all', activeQ='';
 
@@ -179,7 +181,7 @@ function render(){
   var tbody=document.getElementById('tbody');
   tbody.innerHTML='';
   if(!rows.length){
-    tbody.innerHTML='<tr><td colspan="9" style="padding:56px 20px;text-align:center;color:rgba(255,255,255,.3);font-size:.88rem">Nessun prodotto trovato.</td></tr>';
+    tbody.innerHTML='<tr><td colspan="10" style="padding:56px 20px;text-align:center;color:rgba(255,255,255,.3);font-size:.88rem">Nessun prodotto trovato.</td></tr>';
     return;
   }
   var lastCat=null;
@@ -188,14 +190,15 @@ function render(){
     if(activeCat==='all'&&p.category!==lastCat){
       lastCat=p.category;
       var lbl=p.category==='direct'?'Avviamento Diretto — DOL':'Stella-Triangolo — Y/\u0394';
-      tbody.innerHTML+='<tr class="divider-row"><td colspan="9"><div class="divider-label">'+lbl+'</div></td></tr>';
+      tbody.innerHTML+='<tr class="divider-row"><td colspan="10"><div class="divider-label">'+lbl+'</div></td></tr>';
     }
     var nm=dispName(p.name);
     var isDOL=p.category==='direct';
     var badge=isDOL?'<span class="badge b-dol">DOL</span>':'<span class="badge b-yd">Y/\u0394</span>';
     var dims=p.box.h+' \u00d7 '+p.box.l+' \u00d7 '+p.box.w;
     var mp=encodeURIComponent(nm);
-    tbody.innerHTML+='<tr><td class="td-name"><div class="pname">'+nm+'</div><div class="pcode">'+p.code+'</div></td><td>'+badge+'</td><td class="td-kw">'+p.kw+' kW</td><td class="td-sub" data-label="HP">'+p.hp+' HP</td><td class="td-sub" data-label="Corrente">'+p.currentMax+' A</td><td class="td-vol" data-label="Tensione">'+p.voltage+'</td><td class="td-dims" data-label="Dimensioni">'+dims+' mm</td><td class="td-sub" data-label="Peso">'+p.weight+' kg</td><td style="text-align:right"><a href="preventivo.html?model='+mp+'" class="btn-prev">Preventivo \u2192</a></td></tr>';
+    var priceStr=p.price.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2})+' \u20ac';
+    tbody.innerHTML+='<tr><td class="td-name"><div class="pname">'+nm+'</div><div class="pcode">'+p.code+'</div></td><td>'+badge+'</td><td class="td-kw">'+p.kw+' kW</td><td class="td-sub" data-label="HP">'+p.hp+' HP</td><td class="td-sub" data-label="Corrente">'+p.currentMax+' A</td><td class="td-vol" data-label="Tensione">'+p.voltage+'</td><td class="td-dims" data-label="Dimensioni">'+dims+' mm</td><td class="td-sub" data-label="Peso">'+p.weight+' kg</td><td class="td-price" data-label="Prezzo">'+priceStr+'</td><td style="text-align:right"><a href="preventivo.html?model='+mp+'" class="btn-prev">Preventivo \u2192</a></td></tr>';
   }
 }
 
