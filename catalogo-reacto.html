@@ -1,120 +1,108 @@
 <!DOCTYPE html>
-<html lang="it" data-theme="light">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BEK Reacto Smart — Catalogo Prodotti</title>
-  <link rel="icon" type="image/png" href="assets/favicon-bek.png">
+  <link rel="icon" type="image/png" href="favicon-bek.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --ink:#111827;--ink2:#374151;--accent:#F97316;--accent-dk:#EA580C;
-      --muted:#6B7280;--bg:#fff;--surf:#F9FAFB;--bdr:#E5E7EB;
-    }
-    [data-theme=dark]{
-      --ink:#F1F5F9;--ink2:#CBD5E1;--accent:#F97316;--accent-dk:#EA580C;
-      --muted:#94A3B8;--bg:#0F172A;--surf:#1E293B;--bdr:#334155;
-    }
     html{scroll-behavior:smooth;overflow-x:hidden}
-    body{font-family:'Exo 2',sans-serif;color:var(--ink);background:var(--bg);transition:background .3s,color .3s;overflow-x:hidden;width:100%}
+    body{font-family:'Exo 2',sans-serif;color:#fff;background:#111318;overflow-x:hidden;width:100%;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none}
 
-    /* ── NAV — stile arancione con logo BEK bianco ── */
-    nav{
-      position:sticky;top:0;z-index:100;
-      background:var(--accent);
-      display:flex;align-items:center;justify-content:space-between;
-      padding:12px 40px;
-    }
-    [data-theme=dark] nav{background:var(--accent-dk)}
-    .nav-logo{text-decoration:none;display:flex;align-items:center;flex-shrink:0}
-    .nav-logo img{height:46px;width:auto;display:block}
-    .nav-in{display:flex;align-items:center;gap:12px}
-    .nav-back{display:flex;align-items:center;gap:6px;text-decoration:none;color:rgba(255,255,255,.85);font-size:13px;font-weight:500;padding:7px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.3);transition:all .2s;white-space:nowrap}
-    .nav-back:hover{background:rgba(255,255,255,.18);color:white}
-    .dark-toggle{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:white;width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:16px;flex-shrink:0;transition:all .2s;display:flex;align-items:center;justify-content:center}
-    .dark-toggle:hover{background:rgba(255,255,255,.25)}
+    .top-bar{position:sticky;top:0;z-index:100;background:rgba(17,19,24,.96);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.05);height:72px}
+    .top-bar-inner{max-width:1320px;margin:0 auto;padding:0 40px;height:100%;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;user-select:none;gap:12px}
+    .logo-img{height:38px;width:auto}
+    .logo-sep{width:2px;height:36px;background:rgba(255,255,255,.2)}
+    .logo-text{display:flex;flex-direction:column;line-height:1.15}
+    .logo-text span{color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.08em}
+    .logo-line{height:2px;background:#F47920;margin-top:2px}
+    .nav-right{display:flex;align-items:center;gap:12px}
+    .nav-back{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.6);font-size:.82rem;font-weight:500;padding:8px 16px;border:1px solid rgba(255,255,255,.12);transition:all .2s}
+    .nav-back:hover{background:rgba(255,255,255,.05);color:#fff;border-color:rgba(255,255,255,.25)}
 
-    /* ── HEADER ── */
-    .page-hd{padding:52px 24px 28px;max-width:1280px;margin:0 auto}
-    .eyebrow{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:block}
-    .page-hd h1{font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-1.5px;line-height:1.08;margin-bottom:10px}
-    .page-hd p{font-size:14px;color:var(--muted);max-width:480px;line-height:1.7}
-    .norm-badge{display:inline-flex;align-items:center;gap:6px;margin-top:14px;background:color-mix(in srgb,var(--accent) 10%,transparent);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:.4px}
+    .page-hd{padding:56px 40px 28px;max-width:1320px;margin:0 auto}
+    .eyebrow{font-size:.65rem;font-weight:700;color:#F47920;letter-spacing:.3em;text-transform:uppercase;margin-bottom:12px;display:block}
+    .page-hd h1{font-size:clamp(2rem,4vw,3.5rem);font-weight:900;letter-spacing:-1.5px;line-height:1.05;margin-bottom:12px;color:#fff}
+    .page-hd p{font-size:.92rem;color:rgba(255,255,255,.4);max-width:520px;line-height:1.7}
+    .norm-badge{display:inline-flex;align-items:center;gap:6px;margin-top:14px;background:rgba(244,121,32,.1);color:#F47920;border:1px solid rgba(244,121,32,.25);padding:5px 14px;font-size:.68rem;font-weight:700;letter-spacing:.05em}
 
-    /* ── TOOLBAR ── */
-    .toolbar{max-width:1280px;margin:0 auto;padding:0 24px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .toolbar{max-width:1320px;margin:0 auto;padding:0 40px 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
     .search-wrap{flex:1;min-width:180px;max-width:300px;position:relative}
-    .search-wrap svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
-    .search-in{width:100%;padding:8px 12px 8px 34px;border:1.5px solid var(--bdr);border-radius:9px;font-family:'Exo 2',sans-serif;font-size:13px;color:var(--ink);background:var(--bg);outline:none;transition:border-color .2s}
-    .search-in:focus{border-color:var(--accent)}
-    .count-lbl{font-size:12px;color:var(--muted);margin-left:auto;white-space:nowrap}
+    .search-wrap svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.3);pointer-events:none}
+    .search-in{width:100%;padding:9px 12px 9px 36px;border:1px solid rgba(255,255,255,.1);font-family:'Exo 2',sans-serif;font-size:.82rem;color:#fff;background:rgba(255,255,255,.03);outline:none;transition:border-color .2s}
+    .search-in::placeholder{color:rgba(255,255,255,.25)}
+    .search-in:focus{border-color:rgba(244,121,32,.4)}
+    .count-lbl{font-size:.78rem;color:rgba(255,255,255,.3);margin-left:auto;white-space:nowrap}
 
-    /* ── TABLE ── */
-    .tbl-wrap{max-width:1280px;margin:0 auto;padding:0 24px 80px}
-    .tbl{width:100%;border-collapse:collapse;border:1px solid var(--bdr);border-radius:12px;overflow:hidden}
-    .tbl thead tr{background:var(--surf);border-bottom:2px solid var(--bdr)}
-    .tbl th{padding:11px 16px;text-align:left;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;white-space:nowrap}
-    .tbl tbody tr{border-bottom:1px solid var(--bdr);transition:background .15s;cursor:default}
+    .tbl-wrap{max-width:1320px;margin:0 auto;padding:0 40px 80px}
+    .tbl{width:100%;border-collapse:collapse;border:1px solid rgba(255,255,255,.06)}
+    .tbl thead tr{background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.08)}
+    .tbl th{padding:12px 16px;text-align:left;font-size:.62rem;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
+    .tbl tbody tr{border-bottom:1px solid rgba(255,255,255,.05);transition:background .15s}
     .tbl tbody tr:last-child{border-bottom:none}
-    .tbl tbody tr:hover{background:var(--surf)}
-    .tbl td{padding:13px 16px;vertical-align:middle;font-size:13px;color:var(--ink2)}
+    .tbl tbody tr:hover{background:rgba(244,121,32,.03)}
+    .tbl td{padding:14px 16px;vertical-align:middle;font-size:.85rem;color:rgba(255,255,255,.5)}
 
-    /* cells */
     .td-name{min-width:160px}
-    .pname{font-size:14px;font-weight:700;color:var(--ink)}
-    .pcode{font-size:10px;color:var(--muted);font-family:monospace;margin-top:2px}
-    .badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:2px 9px;border-radius:4px;letter-spacing:.3px;white-space:nowrap}
-    .b-reacto{background:color-mix(in srgb,#8B5CF6 12%,transparent);color:#7C3AED}
-    [data-theme=dark] .b-reacto{color:#A78BFA}
-    .td-kw{font-weight:700;color:var(--ink);white-space:nowrap}
-    .td-sub{color:var(--muted);font-size:12px}
-    .td-dims{font-size:12px;color:var(--muted);line-height:1.5}
-    .td-vol{font-size:12px;color:var(--muted)}
-    .btn-prev{background:var(--accent);color:#fff;border:none;border-radius:7px;padding:7px 15px;font-family:'Exo 2',sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;white-space:nowrap;transition:background .2s}
-    .btn-prev:hover{background:var(--accent-dk)}
+    .pname{font-size:.92rem;font-weight:700;color:#fff}
+    .pcode{font-size:.65rem;color:rgba(255,255,255,.2);font-family:monospace;margin-top:2px}
+    .badge{display:inline-flex;align-items:center;font-size:.62rem;font-weight:700;padding:3px 10px;letter-spacing:.05em;white-space:nowrap}
+    .b-reacto{background:rgba(139,92,246,.12);color:#A78BFA}
+    .td-kw{font-weight:700;color:#fff;white-space:nowrap}
+    .td-sub{color:rgba(255,255,255,.35);font-size:.82rem}
+    .td-dims{font-size:.82rem;color:rgba(255,255,255,.3)}
+    .td-vol{font-size:.82rem;color:rgba(255,255,255,.3)}
+    .btn-prev{background:#F47920;color:#fff;border:none;padding:8px 18px;font-family:'Exo 2',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;white-space:nowrap;transition:background .2s;letter-spacing:.05em}
+    .btn-prev:hover{background:#e06b15}
 
-    /* ── CTA FOOTER ── */
-    .cta-strip{background:var(--surf);border-top:1px solid var(--bdr);padding:48px 24px;text-align:center}
-    .cta-strip h3{font-size:clamp(20px,2.5vw,32px);font-weight:900;letter-spacing:-1px;margin-bottom:10px}
-    .cta-strip p{font-size:14px;color:var(--muted);margin-bottom:24px}
-    .btn-cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:13px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;transition:background .2s}
-    .btn-cta:hover{background:var(--accent-dk)}
+    .cta-strip{background:#0d0f11;border-top:1px solid rgba(255,255,255,.04);padding:56px 40px;text-align:center}
+    .cta-strip h3{font-size:clamp(1.3rem,2.5vw,2rem);font-weight:900;letter-spacing:-1px;margin-bottom:10px;color:#fff}
+    .cta-strip p{font-size:.92rem;color:rgba(255,255,255,.35);margin-bottom:24px}
+    .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#F47920;color:#fff;padding:14px 28px;text-decoration:none;font-weight:700;font-size:.82rem;transition:background .2s;letter-spacing:.05em}
+    .btn-cta:hover{background:#e06b15}
 
     @media(max-width:900px){
-      nav{padding:10px 16px}
-      .nav-logo img{height:38px}
+      .top-bar{padding:0 16px;height:60px}
       .page-hd,.toolbar,.tbl-wrap{padding-left:16px;padding-right:16px}
       .tbl thead{display:none}
       .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
-      .tbl tbody tr{padding:14px 16px;border-bottom:1px solid var(--bdr)}
-      .tbl td{padding:2px 0;border:none}
-      .tbl td::before{display:none;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
-      .tbl td[data-label]::before{content:attr(data-label) ": ";display:inline}
-      .td-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0}
+      .tbl tbody tr{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06)}
+      .tbl td{padding:3px 0;border:none}
+      .tbl td[data-label]::before{content:attr(data-label) ": ";font-size:.68rem;font-weight:600;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.05em}
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo" aria-label="BEK — Home">
-    <img src="assets/logo-bek-white.svg" alt="BEK">
+<div class="top-bar">
+  <div class="top-bar-inner">
+  <a href="index.html" class="logo">
+    <img src="bek-logo-orange.png" alt="BEK" class="logo-img" />
+    <div class="logo-sep"></div>
+    <div class="logo-text">
+      <span>Electric</span>
+      <span>Systems</span>
+      <div class="logo-line"></div>
+    </div>
   </a>
-  <div class="nav-in">
+  <div class="nav-right">
     <a href="index.html" class="nav-back">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Torna al sito
     </a>
-    <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" title="Tema">☽</button>
   </div>
-</nav>
+  </div>
+</div>
 
 <div class="page-hd">
   <span class="eyebrow">Catalogo Prodotti</span>
   <h1>BEK Reacto Smart</h1>
-  <p>Quadri di comando per elettropompe antincendio EN 12845 — avviamento ad impedenza (Reacto).</p>
+  <p>Quadri di comando per elettropompe antincendio EN 12845 — motopompa diesel autonoma (Reacto).</p>
   <div class="norm-badge">Conformi EN 12845 · 0 – 232 kW · 6 modelli</div>
 </div>
 
@@ -148,85 +136,47 @@
 <div class="cta-strip">
   <h3>Cerchi DOL o Stella-Triangolo?</h3>
   <p>Scopri la linea BEK Electric Smart — 20 modelli da 3 a 160 kW, conformi EN 12845.</p>
-  <a href="catalogo.html" class="btn-cta" style="margin-bottom:16px">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Vedi Catalogo BEK Electric Smart
-  </a>
+  <a href="catalogo.html" class="btn-cta" style="margin-bottom:20px">Vedi Catalogo BEK Electric Smart</a>
   <br>
-  <h3 style="margin-top:24px">Hai trovato il modello giusto?</h3>
+  <h3 style="margin-top:28px">Hai trovato il modello giusto?</h3>
   <p>Richiedi subito il tuo preventivo personalizzato. Risposta entro 24 ore lavorative.</p>
-  <a href="preventivo.html" class="btn-cta">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Richiedi Preventivo
-  </a>
-  <p style="margin-top:24px;font-size:13px;color:var(--muted)">Non hai trovato il modello giusto o necessiti di una personalizzazione?<br><a href="preventivo.html" style="color:var(--accent);font-weight:600;text-decoration:underline">Contattaci</a> — realizziamo anche quadri su misura in base alle tue specifiche esigenze.</p>
+  <a href="preventivo.html" class="btn-cta">Richiedi Preventivo</a>
+  <p style="margin-top:24px;font-size:.82rem;color:rgba(255,255,255,.25)">Non hai trovato il modello giusto?<br><a href="preventivo.html" style="color:#F47920;font-weight:600">Contattaci</a> — realizziamo anche quadri su misura.</p>
 </div>
 
 <script>
-/* ─── DARK MODE ─── */
-function toggleDark(){
-  const dark=document.documentElement.getAttribute('data-theme')!=='dark';
-  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
-  document.getElementById('darkToggle').textContent=dark?'☼':'☽';
-  localStorage.setItem('bek-theme',dark?'dark':'light');
-}
-(function(){
-  if(localStorage.getItem('bek-theme')==='dark'){
-    document.documentElement.setAttribute('data-theme','dark');
-    document.getElementById('darkToggle').textContent='☼';
-  }
-})();
-
-/* ─── PRODUCT DATA — BEK Reacto Smart ─── */
-const PRODUCTS=[
-  {"code":"7001111","name":"BEK Reacto Smart 0-11","voltage":"1 ~ 230 V","kwRange":"0-11","hpRange":"0-15","currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":23,"material":"Metallico"},
-  {"code":"7003011","name":"BEK Reacto Smart 11-30","voltage":"1 ~ 230 V","kwRange":"11-30","hpRange":"15-40","currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":26.5,"material":"Metallico"},
-  {"code":"7005311","name":"BEK Reacto Smart 35-53","voltage":"1 ~ 230 V","kwRange":"35-53","hpRange":"47-71","currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":26.5,"material":"Metallico"},
-  {"code":"7011011","name":"BEK Reacto Smart 68-110","voltage":"1 ~ 230 V","kwRange":"68-110","hpRange":"91-148","currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":39.5,"material":"Metallico"},
-  {"code":"7016421","name":"BEK Reacto Smart 110-164 W/BATT 180Ah","voltage":"1 ~ 230 V","kwRange":"110-164","hpRange":"148-220","currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":39.5,"material":"Metallico"},
-  {"code":"7023211","name":"BEK Reacto Smart 215-232","voltage":"1 ~ 230 V","kwRange":"215-232","hpRange":"288-311","currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":39,"material":"Metallico"}
+var PRODUCTS=[
+  {"code":"7001111","name":"BEK Reacto Smart 0-11","voltage":"1 ~ 230 V","kwRange":"0-11","hpRange":"0-15","currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":23},
+  {"code":"7003011","name":"BEK Reacto Smart 11-30","voltage":"1 ~ 230 V","kwRange":"11-30","hpRange":"15-40","currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":26.5},
+  {"code":"7005311","name":"BEK Reacto Smart 35-53","voltage":"1 ~ 230 V","kwRange":"35-53","hpRange":"47-71","currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":26.5},
+  {"code":"7011011","name":"BEK Reacto Smart 68-110","voltage":"1 ~ 230 V","kwRange":"68-110","hpRange":"91-148","currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":39.5},
+  {"code":"7016421","name":"BEK Reacto Smart 110-164 W/BATT 180Ah","voltage":"1 ~ 230 V","kwRange":"110-164","hpRange":"148-220","currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":39.5},
+  {"code":"7023211","name":"BEK Reacto Smart 215-232","voltage":"1 ~ 230 V","kwRange":"215-232","hpRange":"288-311","currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":39}
 ];
 
-let activeQ='';
+var activeQ='';
 
 function render(){
-  const q=activeQ.toLowerCase();
-  const rows=PRODUCTS.filter(p=>{
+  var q=activeQ.toLowerCase();
+  var rows=PRODUCTS.filter(function(p){
     if(q){
-      const n=p.name.toLowerCase();
-      if(!n.includes(q)&&!p.code.includes(q)&&!p.kwRange.includes(q)&&!p.hpRange.includes(q))return false;
+      var n=p.name.toLowerCase();
+      if(n.indexOf(q)<0&&p.code.indexOf(q)<0&&p.kwRange.indexOf(q)<0&&p.hpRange.indexOf(q)<0)return false;
     }
     return true;
   });
-
   document.getElementById('countLbl').textContent=rows.length+' prodott'+(rows.length===1?'o':'i');
-
-  const tbody=document.getElementById('tbody');
+  var tbody=document.getElementById('tbody');
   tbody.innerHTML='';
-
   if(!rows.length){
-    tbody.innerHTML='<tr><td colspan="9" style="padding:56px 20px;text-align:center;color:var(--muted);font-size:14px">Nessun prodotto trovato.</td></tr>';
+    tbody.innerHTML='<tr><td colspan="9" style="padding:56px 20px;text-align:center;color:rgba(255,255,255,.3);font-size:.88rem">Nessun prodotto trovato.</td></tr>';
     return;
   }
-
-  for(const p of rows){
-    const dims=`${p.box.h} × ${p.box.l} × ${p.box.w}`;
-    const mp=encodeURIComponent(p.name);
-    tbody.innerHTML+=`
-      <tr>
-        <td class="td-name">
-          <div class="pname">${p.name}</div>
-          <div class="pcode">${p.code}</div>
-        </td>
-        <td><span class="badge b-reacto">REACTO</span></td>
-        <td class="td-kw">${p.kwRange} kW</td>
-        <td class="td-sub" data-label="HP">${p.hpRange} HP</td>
-        <td class="td-sub" data-label="Corrente">${p.currentMax} A</td>
-        <td class="td-vol" data-label="Tensione">${p.voltage}</td>
-        <td class="td-dims" data-label="Dimensioni">${dims} mm</td>
-        <td class="td-sub" data-label="Peso">${p.weight} kg</td>
-        <td style="text-align:right"><a href="preventivo.html?model=${mp}" class="btn-prev">Preventivo →</a></td>
-      </tr>`;
+  for(var i=0;i<rows.length;i++){
+    var p=rows[i];
+    var dims=p.box.h+' \u00d7 '+p.box.l+' \u00d7 '+p.box.w;
+    var mp=encodeURIComponent(p.name);
+    tbody.innerHTML+='<tr><td class="td-name"><div class="pname">'+p.name+'</div><div class="pcode">'+p.code+'</div></td><td><span class="badge b-reacto">REACTO</span></td><td class="td-kw">'+p.kwRange+' kW</td><td class="td-sub" data-label="HP">'+p.hpRange+' HP</td><td class="td-sub" data-label="Corrente">'+p.currentMax+' A</td><td class="td-vol" data-label="Tensione">'+p.voltage+'</td><td class="td-dims" data-label="Dimensioni">'+dims+' mm</td><td class="td-sub" data-label="Peso">'+p.weight+' kg</td><td style="text-align:right"><a href="preventivo.html?model='+mp+'" class="btn-prev">Preventivo \u2192</a></td></tr>';
   }
 }
 
@@ -234,7 +184,6 @@ function applySearch(){
   activeQ=document.getElementById('searchIn').value.trim();
   render();
 }
-
 render();
 </script>
 </body>

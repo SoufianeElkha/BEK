@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BEK Electric Systems — Quadri Elettrici per Impianti Antincendio EN 12845</title>
+<meta name="description" content="Quadri elettrici di comando per impianti antincendio conformi EN 12845. Linea Smart BEK, qualita premium, consegna rapida in 8 giorni. Padova, Italia." />
+<meta property="og:title" content="BEK Electric Systems — Quadri Elettrici Antincendio EN 12845" />
+<meta property="og:description" content="Linea Smart BEK. Conformi EN 12845. Fino al 60% piu economici. Consegna in 8 giorni in tutta Italia." />
+<meta name="theme-color" content="#F47920" />
+<link rel="icon" type="image/png" href="favicon-bek.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: #0a0c0e; color: #fff; font-family: 'Exo 2', Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  img { display: block; }
+  button { font-family: inherit; cursor: pointer; }
+  a { text-decoration: none; }
+
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s cubic-bezier(.25,.46,.45,.94), transform .7s cubic-bezier(.25,.46,.45,.94); }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-d1 { transition-delay: .08s; }
+  .reveal-d2 { transition-delay: .16s; }
+  .reveal-d3 { transition-delay: .24s; }
+  .reveal-d4 { transition-delay: .32s; }
+  .reveal-d5 { transition-delay: .40s; }
+
+  /* ── HEADER ── */
+  #header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background .4s, backdrop-filter .4s, border-bottom .4s; }
+  #header.scrolled { background: rgba(8,10,12,.96); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,.05); }
+  .header-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; user-select: none; }
+  .logo-bek { color: #F47920; font-weight: 900; font-size: 2.6rem; line-height: 1; letter-spacing: -.02em; }
+  .logo-sep { width: 2px; height: 38px; background: rgba(255,255,255,.2); margin: 0 12px; }
+  .logo-text { display: flex; flex-direction: column; line-height: 1; }
+  .logo-text span { color: #fff; font-weight: 700; font-size: .85rem; letter-spacing: .08em; }
+  .logo-line { height: 2px; background: #F47920; margin-top: 2px; }
+  nav { display: flex; gap: 32px; align-items: center; }
+  nav a { color: rgba(255,255,255,.65); font-size: .825rem; font-weight: 500; letter-spacing: .04em; position: relative; transition: color .2s; }
+  nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: #F47920; transition: width .3s; }
+  nav a:hover { color: #fff; }
+  nav a:hover::after { width: 100%; }
+  .header-right { display: flex; align-items: center; gap: 20px; }
+  .header-phone { color: rgba(255,255,255,.5); font-size: .8rem; display: flex; align-items: center; gap: 8px; transition: color .2s; }
+  .header-phone:hover { color: #fff; }
+  .btn-contact { padding: 10px 22px; background: #F47920; color: #fff; font-weight: 700; font-size: .75rem; letter-spacing: .08em; border: none; transition: background .2s; }
+  .btn-contact:hover { background: #e06b15; }
+
+  /* ── HERO ── */
+  #hero { position: relative; height: 100vh; overflow: hidden; background: #000; }
+  .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s ease-in-out; }
+  .hero-slide.active { opacity: 1; }
+  .hero-slide img { width: 100%; height: 100%; object-fit: cover; transition: transform 8s ease-out; }
+  .hero-slide.active img { transform: scale(1.06); }
+  .hero-overlay-diag { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(0,0,0,.88) 38%, rgba(0,0,0,.35) 100%); }
+  .hero-overlay-btm { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.5) 0%, transparent 50%); }
+  .hero-left-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #F47920; z-index: 2; }
+  .hero-content { position: absolute; inset: 0; z-index: 2; }
+  .hero-slide-content { position: absolute; top: 50%; left: 80px; transform: translateY(-50%) translateX(40px); opacity: 0; transition: opacity .6s ease-out, transform .6s ease-out; pointer-events: none; max-width: 640px; }
+  .hero-slide-content.active { opacity: 1; transform: translateY(-50%) translateX(0); pointer-events: auto; }
+  .hero-overline { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .hero-overline-bar { height: 1px; width: 40px; background: #F47920; }
+  .hero-tag { color: #F47920; font-size: .68rem; font-weight: 700; letter-spacing: .35em; text-transform: uppercase; }
+  .hero-h1 { color: #fff; font-weight: 900; line-height: .92; margin-bottom: 24px; white-space: pre-line; font-size: clamp(3.2rem, 5.5vw, 6rem); letter-spacing: -.02em; }
+  .hero-rule { height: 1px; width: 60px; background: rgba(255,255,255,.15); margin-bottom: 20px; }
+  .hero-sub { color: rgba(255,255,255,.65); font-size: 1.05rem; line-height: 1.65; max-width: 480px; margin-bottom: 36px; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { padding: 14px 32px; background: #F47920; color: #fff; font-weight: 700; font-size: .75rem; letter-spacing: .1em; border: none; transition: background .2s; }
+  .btn-primary:hover { background: #e06b15; }
+  .btn-outline { padding: 14px 32px; background: transparent; color: #fff; font-weight: 700; font-size: .75rem; letter-spacing: .1em; border: 1px solid rgba(255,255,255,.25); transition: border-color .2s, background .2s; }
+  .btn-outline:hover { border-color: rgba(255,255,255,.55); background: rgba(255,255,255,.04); }
+  .hero-nav { position: absolute; bottom: 40px; left: 80px; display: flex; align-items: center; gap: 20px; z-index: 3; }
+  .slide-btn { background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 10px; padding: 4px; }
+  .slide-btn-bar { height: 1px; width: 20px; background: rgba(255,255,255,.25); transition: width .4s, background .4s; }
+  .slide-btn.active .slide-btn-bar { width: 40px; background: #F47920; }
+  .slide-btn-num { font-family: monospace; font-size: .7rem; color: rgba(255,255,255,.25); transition: color .4s; }
+  .slide-btn.active .slide-btn-num { color: #F47920; }
+  #hero-progress { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: #F47920; transform: scaleX(0); transform-origin: left; z-index: 3; }
+  @keyframes progress-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  #hero-progress.running { animation: progress-fill 5.5s linear forwards; }
+
+  /* ── STATS ── */
+  #stats { background: #0d0f11; }
+  .stats-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat-item { padding: 44px 0; text-align: center; }
+  .stat-item:not(:last-child) { border-right: 1px solid rgba(255,255,255,.05); }
+  .stat-value { font-weight: 900; font-size: 3.2rem; color: #F47920; line-height: 1; }
+  .stat-label { color: rgba(255,255,255,.35); font-size: .75rem; letter-spacing: .1em; margin-top: 8px; text-transform: uppercase; }
+
+  /* ── PRODUCTS ── */
+  #products { padding: 100px 0; background: #0a0c0e; overflow: hidden; }
+  .products-header { max-width: 1280px; margin: 0 auto; padding: 0 40px; margin-bottom: 48px; }
+  .section-header-row { display: flex; align-items: flex-end; justify-content: space-between; }
+  .section-overline { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .section-overline-bar { height: 1px; background: #F47920; }
+  .section-tag { color: #F47920; font-size: .65rem; font-weight: 700; letter-spacing: .35em; text-transform: uppercase; }
+  .section-h2 { font-weight: 900; color: #fff; font-size: clamp(2.5rem,4vw,3.5rem); line-height: .95; letter-spacing: -.02em; }
+  .section-h2 span { color: #F47920; }
+  .scroll-arrows { display: flex; gap: 8px; }
+  .scroll-arrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.1); background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.4); transition: all .2s; }
+  .scroll-arrow:hover:not(:disabled) { border-color: rgba(244,121,32,.5); color: #F47920; }
+  .scroll-arrow:disabled { opacity: .2; cursor: default; }
+  .scroll-arrow svg { width: 18px; height: 18px; }
+  .products-track { display: flex; gap: 16px; overflow-x: auto; padding: 0 40px 8px; scrollbar-width: none; -ms-overflow-style: none; }
+  .products-track::-webkit-scrollbar { display: none; }
+  .prod-card { position: relative; flex-shrink: 0; width: 340px; height: 440px; overflow: hidden; cursor: pointer; }
+  .prod-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
+  .prod-card:hover img { transform: scale(1.07); }
+  .prod-grad { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.92) 40%, rgba(0,0,0,.2) 100%); }
+  .prod-num { position: absolute; top: 20px; right: 20px; font-family: monospace; font-size: .75rem; color: rgba(255,255,255,.2); font-weight: 700; }
+  .prod-accent { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: #F47920; transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
+  .prod-card:hover .prod-accent { transform: scaleX(1); }
+  .prod-body { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; }
+  .prod-sub { color: #F47920; font-size: .62rem; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; margin-bottom: 8px; }
+  .prod-title { color: #fff; font-weight: 900; font-size: 1.25rem; line-height: 1.2; margin-bottom: 10px; }
+  .prod-desc { color: rgba(255,255,255,.45); font-size: .82rem; line-height: 1.55; }
+  .prod-link { display: flex; align-items: center; gap: 6px; margin-top: 16px; color: #F47920; font-size: .7rem; font-weight: 700; letter-spacing: .08em; }
+  .prod-link svg { width: 13px; height: 13px; }
+  .prod-badge { position: absolute; top: 20px; left: 20px; background: rgba(244,121,32,.15); border: 1px solid rgba(244,121,32,.3); padding: 4px 12px; font-size: .6rem; font-weight: 700; letter-spacing: .1em; color: #F47920; text-transform: uppercase; }
+
+  /* ── ABOUT ── */
+  #about { position: relative; height: 85vh; overflow: hidden; display: flex; align-items: center; }
+  .about-bg { position: absolute; inset: 0; will-change: transform; }
+  .about-bg img { width: 100%; height: 115%; object-fit: cover; margin-top: -7.5%; }
+  .about-overlay { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(0,0,0,.92) 42%, rgba(0,0,0,.4) 100%); }
+  .about-content { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 64px; width: 100%; }
+  .about-h2 { font-weight: 900; color: #fff; font-size: clamp(2.5rem,4vw,4.5rem); line-height: .93; letter-spacing: -.02em; margin-bottom: 24px; }
+  .about-h2 span { color: #F47920; }
+  .about-p { color: rgba(255,255,255,.6); font-size: 1rem; line-height: 1.7; max-width: 460px; margin-bottom: 32px; }
+  .about-btns { display: flex; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
+  .credential-strip { display: flex; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.08); }
+  .credential-item { padding-top: 16px; padding-right: 28px; }
+  .credential-item:not(:last-child) { border-right: 1px solid rgba(255,255,255,.08); margin-right: 28px; }
+  .credential-item span { color: rgba(255,255,255,.3); font-size: .7rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+
+  /* ── WHY US ── */
+  #perche { padding: 100px 0; background: #0d0f11; }
+  .perche-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+  .perche-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .perche-card { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.06); padding: 36px 28px; transition: border-color .3s, background .3s; }
+  .perche-card:hover { border-color: rgba(244,121,32,.3); background: rgba(244,121,32,.04); }
+  .perche-icon { width: 48px; height: 48px; background: rgba(244,121,32,.1); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.2rem; }
+  .perche-card h3 { font-weight: 800; font-size: 1rem; color: #fff; margin-bottom: 10px; }
+  .perche-card p { color: rgba(255,255,255,.4); font-size: .85rem; line-height: 1.6; }
+
+  /* ── PROCESS ── */
+  #processo { padding: 100px 0; background: #0a0c0e; }
+  .processo-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+  .steps-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; position: relative; }
+  .steps-row::before { content: ''; position: absolute; top: 28px; left: 56px; right: 56px; height: 1px; background: rgba(244,121,32,.2); z-index: 0; }
+  .step-card { text-align: center; position: relative; z-index: 1; }
+  .step-num { width: 56px; height: 56px; background: rgba(244,121,32,.1); border: 1px solid rgba(244,121,32,.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 900; font-size: 1.1rem; color: #F47920; }
+  .step-card h4 { font-weight: 800; font-size: .95rem; color: #fff; margin-bottom: 10px; }
+  .step-card p { color: rgba(255,255,255,.35); font-size: .82rem; line-height: 1.6; }
+
+  /* ── CERTIFICATIONS ── */
+  #cert { padding: 80px 0; background: #0d0f11; }
+  .cert-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+  .cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
+  .cert-card { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.06); padding: 32px 24px; text-align: center; transition: border-color .3s; }
+  .cert-card:hover { border-color: rgba(244,121,32,.3); }
+  .cert-badge { width: 60px; height: 60px; background: rgba(244,121,32,.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 1.4rem; font-weight: 900; color: #F47920; }
+  .cert-card h4 { font-weight: 800; font-size: .95rem; color: #fff; margin-bottom: 6px; }
+  .cert-card p { color: rgba(255,255,255,.35); font-size: .78rem; line-height: 1.5; }
+
+  /* ── FAQ ── */
+  #faq { padding: 100px 0; background: #0a0c0e; }
+  .faq-inner { max-width: 760px; margin: 0 auto; padding: 0 40px; }
+  .faq-list { display: flex; flex-direction: column; gap: 2px; margin-top: 48px; }
+  .faq-item { border: 1px solid rgba(255,255,255,.06); overflow: hidden; }
+  .faq-q { width: 100%; text-align: left; padding: 20px 24px; font-size: .95rem; font-weight: 600; color: #fff; background: none; border: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer; transition: color .2s; }
+  .faq-q:hover { color: #F47920; }
+  .faq-q-icon { font-size: 1.2rem; color: #F47920; transition: transform .3s; flex-shrink: 0; }
+  .faq-item.open .faq-q-icon { transform: rotate(45deg); }
+  .faq-a { display: none; padding: 0 24px 20px; font-size: .88rem; color: rgba(255,255,255,.5); line-height: 1.7; border-top: 1px solid rgba(255,255,255,.05); padding-top: 16px; }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ── CONTACT ── */
+  #contatti { padding: 100px 0; background: #0d0f11; }
+  .contatti-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+  .contatti-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; }
+  .contatto-list { display: flex; flex-direction: column; gap: 24px; }
+  .contatto-item { display: flex; gap: 16px; align-items: flex-start; }
+  .contatto-icon { width: 44px; height: 44px; background: rgba(244,121,32,.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #F47920; font-size: .9rem; font-weight: 700; }
+  .contatto-item h4 { font-weight: 700; font-size: .88rem; color: #fff; margin-bottom: 3px; }
+  .contatto-item p, .contatto-item a { font-size: .88rem; color: rgba(255,255,255,.4); transition: color .2s; }
+  .contatto-item a:hover { color: #F47920; }
+  .whatsapp-btn { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: white; padding: 14px 28px; font-weight: 700; font-size: .88rem; transition: background .2s; margin-top: 12px; }
+  .whatsapp-btn:hover { background: #1ebe5d; }
+  .map-wrap { border: 1px solid rgba(255,255,255,.06); overflow: hidden; height: 100%; min-height: 320px; }
+  .map-wrap iframe { width: 100%; height: 100%; border: none; filter: grayscale(1) invert(1) brightness(.7) contrast(1.3); }
+
+  /* ── CTA ── */
+  #cta { position: relative; padding: 140px 0; overflow: hidden; }
+  .cta-bg { position: absolute; inset: 0; will-change: transform; }
+  .cta-bg img { width: 100%; height: 120%; object-fit: cover; margin-top: -10%; }
+  .cta-overlay-orange { position: absolute; inset: 0; background: rgba(215,83,10,.88); mix-blend-mode: multiply; }
+  .cta-overlay-dark { position: absolute; inset: 0; background: rgba(0,0,0,.3); }
+  .cta-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px); background-size: 72px 72px; }
+  .cta-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; text-align: center; padding: 0 40px; }
+  .cta-eyebrow { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 28px; }
+  .cta-eyebrow-bar { height: 1px; width: 60px; background: rgba(255,255,255,.3); }
+  .cta-eyebrow-text { color: rgba(255,255,255,.6); font-size: .65rem; font-weight: 700; letter-spacing: .35em; text-transform: uppercase; }
+  .cta-h2 { font-weight: 900; color: #fff; font-size: clamp(2.8rem,5vw,5.5rem); line-height: .93; letter-spacing: -.02em; margin-bottom: 20px; }
+  .cta-p { color: rgba(255,255,255,.75); font-size: 1.1rem; line-height: 1.65; max-width: 520px; margin: 0 auto 40px; }
+  .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-cta-white { padding: 16px 40px; background: #fff; color: #D05310; font-weight: 900; font-size: .75rem; letter-spacing: .1em; border: none; transition: background .2s; }
+  .btn-cta-white:hover { background: #fff5f0; }
+  .btn-cta-outline { padding: 16px 40px; background: transparent; color: #fff; font-weight: 900; font-size: .75rem; letter-spacing: .1em; border: 2px solid rgba(255,255,255,.4); display: flex; align-items: center; gap: 10px; transition: background .2s, border-color .2s; }
+  .btn-cta-outline:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.6); }
+  .btn-cta-outline svg { width: 15px; height: 15px; }
+
+  /* ── FOOTER ── */
+  footer { background: #06080a; border-top: 1px solid rgba(255,255,255,.04); }
+  .footer-inner { max-width: 1280px; margin: 0 auto; padding: 64px 40px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+  .footer-brand p { color: rgba(255,255,255,.25); font-size: .82rem; line-height: 1.65; margin-top: 20px; max-width: 260px; }
+  .footer-col h4 { color: #fff; font-weight: 700; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul a { color: rgba(255,255,255,.28); font-size: .82rem; transition: color .2s; }
+  .footer-col ul a:hover { color: #F47920; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,.04); padding: 20px 40px; }
+  .footer-bottom-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .footer-bottom-inner span, .footer-bottom-inner a { color: rgba(255,255,255,.18); font-size: .75rem; }
+  .footer-bottom-inner a:hover { color: rgba(255,255,255,.4); }
+  .footer-legal { display: flex; gap: 24px; }
+
+  /* ── WhatsApp floating ── */
+  .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,.4); transition: transform .2s; }
+  .wa-float:hover { transform: scale(1.1); }
+  .wa-float svg { width: 28px; height: 28px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    nav { display: none; }
+    .header-phone { display: none; }
+    .hero-slide-content { left: 30px; right: 30px; }
+    .hero-nav { left: 30px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .perche-grid { grid-template-columns: 1fr 1fr; }
+    .cert-grid { grid-template-columns: 1fr 1fr; }
+    .steps-row { grid-template-columns: 1fr 1fr; }
+    .steps-row::before { display: none; }
+    .contatti-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stat-item:nth-child(2) { border-right: none; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; }
+    .hero-slide-content { left: 20px; right: 20px; }
+    .hero-nav { left: 20px; }
+    .cta-btns { flex-direction: column; align-items: center; }
+    .perche-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .steps-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#hero" class="logo">
+      <span class="logo-bek">BEK</span>
+      <div class="logo-sep"></div>
+      <div class="logo-text">
+        <span>Electric</span>
+        <span>Systems</span>
+        <div class="logo-line"></div>
+      </div>
+    </a>
+    <nav>
+      <a href="#products">Prodotti</a>
+      <a href="#about">Chi Siamo</a>
+      <a href="#perche">Vantaggi</a>
+      <a href="#cert">Certificazioni</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <div class="header-right">
+      <a href="tel:+393505392789" class="header-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F47920" stroke-width="1.5" style="width:15px;height:15px"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        +39 350 539 2789
+      </a>
+      <a href="preventivo.html" class="btn-contact">PREVENTIVO</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-slide active" id="slide-0">
+    <img src="anteprima.png" alt="Quadri elettrici BEK" loading="eager" />
+  </div>
+  <div class="hero-slide" id="slide-1">
+    <img src="panel.png" alt="Pannello BEK Smart" loading="lazy" style="object-position: center center; background: #1a1a1a;" />
+  </div>
+  <div class="hero-slide" id="slide-2">
+    <img src="anteprima.png" alt="Quadri elettrici industriali" loading="lazy" />
+  </div>
+
+  <div class="hero-overlay-diag"></div>
+  <div class="hero-overlay-btm"></div>
+  <div class="hero-left-bar"></div>
+
+  <div class="hero-content">
+    <div class="hero-slide-content active" id="sc-0">
+      <div class="hero-overline"><div class="hero-overline-bar"></div><span class="hero-tag">QUADRI ANTINCENDIO EN 12845</span></div>
+      <h1 class="hero-h1">Quadri Elettrici&#10;Antincendio.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">Quadri di comando per elettropompe antincendio conformi EN 12845. Avviamento diretto, stella-triangolo e ad impedenza. Da 3 a 160 kW.</p>
+      <div class="hero-btns">
+        <a href="catalogo.html" class="btn-primary">VEDI CATALOGO</a>
+        <a href="preventivo.html" class="btn-outline">PREVENTIVO GRATUITO</a>
+      </div>
+    </div>
+    <div class="hero-slide-content" id="sc-1">
+      <div class="hero-overline"><div class="hero-overline-bar"></div><span class="hero-tag">LINEA BEK SMART</span></div>
+      <h1 class="hero-h1">Fino al 60%&#10;piu economici.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">Produzione diretta senza intermediari. Stesso quadro EN 12845, materiali premium, prezzo che la concorrenza non puo eguagliare.</p>
+      <div class="hero-btns">
+        <a href="preventivo.html" class="btn-primary">RICHIEDI PREVENTIVO</a>
+        <a href="#perche" class="btn-outline">SCOPRI PERCHE</a>
+      </div>
+    </div>
+    <div class="hero-slide-content" id="sc-2">
+      <div class="hero-overline"><div class="hero-overline-bar"></div><span class="hero-tag">CONSEGNA RAPIDA</span></div>
+      <h1 class="hero-h1">Consegna&#10;in 8 giorni.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">Modelli a stock con spedizione tracciata in tutta Italia. 100% testati in fabbrica prima della spedizione.</p>
+      <div class="hero-btns">
+        <a href="catalogo.html" class="btn-primary">SCOPRI I MODELLI</a>
+        <a href="#contatti" class="btn-outline">CONTATTACI</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-nav">
+    <button class="slide-btn active" onclick="goToSlide(0)"><div class="slide-btn-bar"></div><span class="slide-btn-num">01</span></button>
+    <button class="slide-btn" onclick="goToSlide(1)"><div class="slide-btn-bar"></div><span class="slide-btn-num">02</span></button>
+    <button class="slide-btn" onclick="goToSlide(2)"><div class="slide-btn-bar"></div><span class="slide-btn-num">03</span></button>
+  </div>
+  <div id="hero-progress" class="running"></div>
+</section>
+
+<!-- ── STATS ── -->
+<section id="stats">
+  <div class="stats-inner">
+    <div class="stats-grid">
+      <div class="stat-item reveal"><div class="stat-value">-60%</div><div class="stat-label">vs concorrenza</div></div>
+      <div class="stat-item reveal reveal-d1"><div class="stat-value">100%</div><div class="stat-label">Testati in fabbrica</div></div>
+      <div class="stat-item reveal reveal-d2"><div class="stat-value">8 gg</div><div class="stat-label">Consegna garantita</div></div>
+      <div class="stat-item reveal reveal-d3"><div class="stat-value">26</div><div class="stat-label">Modelli disponibili</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRODUCTS ── -->
+<section id="products">
+  <div class="products-header">
+    <div class="section-header-row reveal">
+      <div>
+        <div class="section-overline"><div class="section-overline-bar" style="width:32px"></div><span class="section-tag">I nostri prodotti</span></div>
+        <h2 class="section-h2">Scegli il tuo<br><span>quadro.</span></h2>
+      </div>
+      <div class="scroll-arrows">
+        <button class="scroll-arrow" id="prod-left" onclick="scrollProd(-1)" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg></button>
+        <button class="scroll-arrow" id="prod-right" onclick="scrollProd(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="products-track" id="prod-track" onscroll="updateProdArrows()">
+
+    <div class="prod-card">
+      <img src="panel.png" alt="BEK Smart DOL" style="object-position: center; background:#222;" />
+      <div class="prod-grad"></div>
+      <div class="prod-num">01</div>
+      <div class="prod-badge">DOL</div>
+      <div class="prod-accent"></div>
+      <div class="prod-body">
+        <div class="prod-sub">Avviamento diretto</div>
+        <h3 class="prod-title">BEK Smart Elettrico DOL</h3>
+        <p class="prod-desc">Quadri per elettropompe antincendio con avviamento diretto. Da 3 a 22 kW. EN 12845.</p>
+        <div class="prod-link">CATALOGO <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></div>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <img src="anteprima.png" alt="BEK Smart Y/D" />
+      <div class="prod-grad"></div>
+      <div class="prod-num">02</div>
+      <div class="prod-badge">Y/&#916;</div>
+      <div class="prod-accent"></div>
+      <div class="prod-body">
+        <div class="prod-sub">Stella-triangolo</div>
+        <h3 class="prod-title">BEK Smart Elettrico Y/&#916;</h3>
+        <p class="prod-desc">Riduzione corrente di spunto di 1/3. Da 11 a 160 kW. Ideale per reti sensibili. EN 12845.</p>
+        <div class="prod-link">CATALOGO <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></div>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <img src="panel.png" alt="BEK Reacto Smart" style="object-position: center; background:#222;" />
+      <div class="prod-grad"></div>
+      <div class="prod-num">03</div>
+      <div class="prod-badge">REACTO</div>
+      <div class="prod-accent"></div>
+      <div class="prod-body">
+        <div class="prod-sub">Avviamento ad impedenza</div>
+        <h3 class="prod-title">BEK Reacto Smart</h3>
+        <p class="prod-desc">Quadri ad impedenza per elettropompe antincendio. Da 0 a 232 kW. 6 modelli. EN 12845.</p>
+        <div class="prod-link">CATALOGO <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></div>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <img src="anteprima.png" alt="BEK Reacto Fuel" />
+      <div class="prod-grad"></div>
+      <div class="prod-num">04</div>
+      <div class="prod-badge">DIESEL</div>
+      <div class="prod-accent"></div>
+      <div class="prod-body">
+        <div class="prod-sub">Motopompa diesel</div>
+        <h3 class="prod-title">BEK Reacto Fuel</h3>
+        <p class="prod-desc">Totalmente autonomo dalla rete elettrica. Avviamento automatico, doppia batteria. EN 12845.</p>
+        <div class="prod-link">CATALOGO <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></div>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <img src="panel.png" alt="Quadri su misura" style="object-position: center; background:#222;" />
+      <div class="prod-grad"></div>
+      <div class="prod-num">05</div>
+      <div class="prod-badge">CUSTOM</div>
+      <div class="prod-accent"></div>
+      <div class="prod-body">
+        <div class="prod-sub">Personalizzazioni</div>
+        <h3 class="prod-title">Quadri su Misura</h3>
+        <p class="prod-desc">Configurazioni personalizzate in base alle tue specifiche esigenze. Nessun minimo d'ordine.</p>
+        <div class="prod-link">CONTATTACI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-bg" id="about-bg">
+    <img src="anteprima.png" alt="BEK Electric Systems" loading="lazy" />
+  </div>
+  <div class="about-overlay"></div>
+  <div class="about-content">
+    <div class="reveal">
+      <div class="section-overline"><div class="section-overline-bar" style="width:32px"></div><span class="section-tag">Chi siamo</span></div>
+      <h2 class="about-h2">Produzione<br><span>diretta</span>,<br>qualita superiore.</h2>
+      <p class="about-p">BEK Electric Systems produce quadri elettrici di comando per impianti antincendio conformi EN 12845. Grazie alla produzione diretta eliminiamo i margini degli intermediari: stesso prodotto, materiali premium, prezzo fino al 60% inferiore.</p>
+      <div class="about-btns">
+        <a href="catalogo.html" class="btn-primary" style="font-size:.73rem;letter-spacing:.08em">VEDI CATALOGO</a>
+        <a href="preventivo.html" class="btn-outline" style="font-size:.73rem;letter-spacing:.08em">PREVENTIVO</a>
+      </div>
+      <div class="credential-strip">
+        <div class="credential-item"><span>EN 12845</span></div>
+        <div class="credential-item"><span>UNI 10779</span></div>
+        <div class="credential-item"><span>EN 17451</span></div>
+        <div class="credential-item"><span>UNI 11292</span></div>
+        <div class="credential-item"><span>3 – 232 kW</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section id="perche">
+  <div class="perche-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:48px;">
+      <div class="section-overline" style="justify-content:center"><div class="section-overline-bar" style="width:32px"></div><span class="section-tag">Perche sceglierci</span></div>
+      <h2 class="section-h2">I nostri <span>vantaggi.</span></h2>
+    </div>
+    <div class="perche-grid">
+      <div class="perche-card reveal">
+        <div class="perche-icon">&#8364;</div>
+        <h3>Prezzi competitivi</h3>
+        <p>Produzione diretta senza intermediari. Qualita superiore a un prezzo fino al 60% inferiore rispetto alla concorrenza.</p>
+      </div>
+      <div class="perche-card reveal reveal-d1">
+        <div class="perche-icon">&#9733;</div>
+        <h3>Materiali premium</h3>
+        <p>Componenti selezionati dai migliori produttori. Ogni quadro costruito per resistere in ambienti industriali esigenti.</p>
+      </div>
+      <div class="perche-card reveal reveal-d2">
+        <div class="perche-icon">&#10003;</div>
+        <h3>Test al 100%</h3>
+        <p>Ogni unita testata singolarmente: calibrazione, prova motore e misura di isolamento. Verbale di collaudo incluso.</p>
+      </div>
+      <div class="perche-card reveal reveal-d3">
+        <div class="perche-icon">&#9889;</div>
+        <h3>Consegna in 8 giorni</h3>
+        <p>Tempi certi e rispettati. Spedizione in tutta Italia con tracciamento in tempo reale per modelli a stock.</p>
+      </div>
+      <div class="perche-card reveal reveal-d4">
+        <div class="perche-icon">&#9998;</div>
+        <h3>Personalizzazioni</h3>
+        <p>Flessibilita per configurazioni su misura e lotti piccoli. Nessun minimo d'ordine.</p>
+      </div>
+      <div class="perche-card reveal reveal-d5">
+        <div class="perche-icon">&#128270;</div>
+        <h3>Trasparenza totale</h3>
+        <p>Prezzi e specifiche pubblicati apertamente. Nessuna sorpresa, nessun costo nascosto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section id="processo">
+  <div class="processo-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:0;">
+      <div class="section-overline" style="justify-content:center"><div class="section-overline-bar" style="width:32px"></div><span class="section-tag">Il nostro processo</span></div>
+      <h2 class="section-h2">Come <span>funziona.</span></h2>
+    </div>
+    <div class="steps-row">
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <h4>Richiedi il preventivo</h4>
+        <p>Compila il modulo online, scrivici su WhatsApp, chiamaci o inviaci una email. Risposta entro 24 ore lavorative.</p>
+      </div>
+      <div class="step-card reveal reveal-d1">
+        <div class="step-num">2</div>
+        <h4>Conferma l'ordine</h4>
+        <p>Ricevi il preventivo, confermalo per iscritto. Nessun anticipo su modelli a stock, pagamento a 30 gg fattura.</p>
+      </div>
+      <div class="step-card reveal reveal-d2">
+        <div class="step-num">3</div>
+        <h4>Produzione & test</h4>
+        <p>Il quadro viene assemblato e testato: calibrazione, prova motore, misura isolamento. Verbale allegato.</p>
+      </div>
+      <div class="step-card reveal reveal-d3">
+        <div class="step-num">4</div>
+        <h4>Consegna in 8 giorni</h4>
+        <p>Spedizione in tutta Italia con corriere tracciato. Tempi certi e rispettati per modelli a stock.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ── -->
+<section id="cert">
+  <div class="cert-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:0;">
+      <div class="section-overline" style="justify-content:center"><div class="section-overline-bar" style="width:32px"></div><span class="section-tag">Normative</span></div>
+      <h2 class="section-h2">Conformita e <span>certificazioni.</span></h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card reveal">
+        <div class="cert-badge">EN</div>
+        <h4>EN 12845</h4>
+        <p>Standard europeo principale per impianti sprinkler fissi — riferimento primario</p>
+      </div>
+      <div class="cert-card reveal reveal-d1">
+        <div class="cert-badge">UN</div>
+        <h4>UNI 11292</h4>
+        <p>Locali destinati a gruppi di pompaggio antincendio</p>
+      </div>
+      <div class="cert-card reveal reveal-d2">
+        <div class="cert-badge">UN</div>
+        <h4>UNI 10779</h4>
+        <p>Impianti di estinzione incendi — reti idranti</p>
+      </div>
+      <div class="cert-card reveal reveal-d3">
+        <div class="cert-badge">CE</div>
+        <h4>EN 17451</h4>
+        <p>Standard europeo per quadri di comando per pompe antincendio</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:0;">
+      <div class="section-overline" style="justify-content:center"><div class="section-overline-bar" style="width:32px"></div><span class="section-tag">FAQ</span></div>
+      <h2 class="section-h2">Domande <span>frequenti.</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">I quadri sono gia pronti in magazzino o prodotti su ordine?<span class="faq-q-icon">+</span></button>
+        <div class="faq-a">La maggior parte dei modelli della linea Smart BEK e disponibile a stock. Per configurazioni standard la consegna e in 8 giorni lavorativi. Modelli personalizzati o taglie speciali richiedono tempi di produzione aggiuntivi comunicati in fase di preventivo.</div>
+      </div>
+      <div class="faq-item reveal reveal-d1">
+        <button class="faq-q" onclick="toggleFaq(this)">E possibile richiedere un collaudo certificato EN 12845?<span class="faq-q-icon">+</span></button>
+        <div class="faq-a">Si. Ogni quadro viene testato in fabbrica prima della spedizione. Forniamo il verbale di collaudo con i dati di calibrazione, prova motore e misura di isolamento. Su richiesta e possibile organizzare un collaudo in presenza del cliente.</div>
+      </div>
+      <div class="faq-item reveal reveal-d2">
+        <button class="faq-q" onclick="toggleFaq(this)">Qual e la differenza tra avviamento DOL e stella-triangolo?<span class="faq-q-icon">+</span></button>
+        <div class="faq-a">L'avviamento diretto (DOL) e piu semplice ed economico, adatto per motori fino a 22 kW. L'avviamento stella-triangolo (Y/&#916;) riduce la corrente di spunto di circa 1/3, consigliato per potenze da 11 kW in su dove la rete e sensibile ai picchi.</div>
+      </div>
+      <div class="faq-item reveal reveal-d3">
+        <button class="faq-q" onclick="toggleFaq(this)">Offrite assistenza post-vendita?<span class="faq-q-icon">+</span></button>
+        <div class="faq-a">Assolutamente si. Il nostro team tecnico e disponibile telefonicamente e via email. Per installatori abituali offriamo un canale WhatsApp dedicato per risposte rapide. Gestiamo anche interventi in garanzia in modo diretto.</div>
+      </div>
+      <div class="faq-item reveal reveal-d4">
+        <button class="faq-q" onclick="toggleFaq(this)">Accettate ordini da piccoli installatori?<span class="faq-q-icon">+</span></button>
+        <div class="faq-a">Si, non abbiamo minimi d'ordine. Serviamo sia grandi distributori che singoli installatori con le stesse condizioni di qualita e servizio. Per clienti abituali sono disponibili condizioni di prezzo dedicate.</div>
+      </div>
+      <div class="faq-item reveal reveal-d5">
+        <button class="faq-q" onclick="toggleFaq(this)">I quadri sono compatibili con qualsiasi marca di pompa?<span class="faq-q-icon">+</span></button>
+        <div class="faq-a">Si. I nostri quadri funzionano con elettropompe di qualsiasi marca, purche le specifiche elettriche rientrino nella gamma del modello selezionato. Il nostro ufficio tecnico puo verificare la compatibilita su richiesta.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTATTI ── -->
+<section id="contatti">
+  <div class="contatti-inner">
+    <div class="reveal">
+      <div class="section-overline"><div class="section-overline-bar" style="width:32px"></div><span class="section-tag">Contatti</span></div>
+      <h2 class="section-h2">Dove siamo &amp;<br>come <span>contattarci.</span></h2>
+    </div>
+    <div class="contatti-grid">
+      <div class="contatto-list reveal">
+        <div class="contatto-item">
+          <div class="contatto-icon">&#128205;</div>
+          <div><h4>Sede</h4><p>Padova (PD), Italia</p></div>
+        </div>
+        <div class="contatto-item">
+          <div class="contatto-icon">Tel</div>
+          <div><h4>Telefono</h4><a href="tel:+393505392789">+39 350 539 2789</a></div>
+        </div>
+        <div class="contatto-item">
+          <div class="contatto-icon">@</div>
+          <div><h4>Email</h4><a href="mailto:info@bekelectric.com">info@bekelectric.com</a></div>
+        </div>
+        <div class="contatto-item">
+          <div class="contatto-icon">&#128336;</div>
+          <div><h4>Orari</h4><p>Lun-Ven: 8:00-17:30 | Sab: 8:00-12:00</p></div>
+        </div>
+        <div class="contatto-item">
+          <div class="contatto-icon">in</div>
+          <div><h4>LinkedIn</h4><a href="https://linkedin.com/company/bek-electric-systems" target="_blank" rel="noopener">BEK Electric Systems</a></div>
+        </div>
+        <a href="https://wa.me/393505392789?text=Ciao%20BEK%20Electric%2C%20vorrei%20un%20preventivo%20per%20un%20quadro%20antincendio." target="_blank" rel="noopener" class="whatsapp-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Scrivici su WhatsApp
+        </a>
+      </div>
+      <div class="map-wrap reveal reveal-d1">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=11.82%2C45.37%2C11.94%2C45.44&layer=mapnik&marker=45.4064%2C11.8768" title="Mappa sede BEK Electric Systems" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta">
+  <div class="cta-bg" id="cta-bg">
+    <img src="anteprima.png" alt="" loading="lazy" />
+  </div>
+  <div class="cta-overlay-orange"></div>
+  <div class="cta-overlay-dark"></div>
+  <div class="cta-grid"></div>
+  <div class="cta-content">
+    <div class="reveal">
+      <div class="cta-eyebrow">
+        <div class="cta-eyebrow-bar"></div>
+        <span class="cta-eyebrow-text">Richiedi preventivo</span>
+        <div class="cta-eyebrow-bar"></div>
+      </div>
+      <h2 class="cta-h2">Hai trovato il<br>modello giusto?</h2>
+      <p class="cta-p">Richiedi subito il tuo preventivo personalizzato. Risposta entro 24 ore lavorative. Nessun impegno.</p>
+      <div class="cta-btns">
+        <a href="preventivo.html" class="btn-cta-white">RICHIEDI PREVENTIVO</a>
+        <a href="tel:+393505392789" class="btn-cta-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          CHIAMACI ORA
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">
+        <span class="logo-bek">BEK</span>
+        <div class="logo-sep"></div>
+        <div class="logo-text">
+          <span>Electric</span>
+          <span>Systems</span>
+          <div class="logo-line"></div>
+        </div>
+      </div>
+      <p>Quadri elettrici di comando per impianti antincendio conformi EN 12845. Qualita italiana, consegna rapida in tutta Italia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Prodotti</h4>
+      <ul>
+        <li><a href="catalogo.html">BEK Smart DOL</a></li>
+        <li><a href="catalogo.html">BEK Smart Y/&#916;</a></li>
+        <li><a href="catalogo-reacto.html">BEK Reacto Smart</a></li>
+        <li><a href="#">BEK Reacto Fuel</a></li>
+        <li><a href="preventivo.html">Richiedi Preventivo</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Azienda</h4>
+      <ul>
+        <li><a href="#about">Chi Siamo</a></li>
+        <li><a href="#perche">Vantaggi</a></li>
+        <li><a href="#cert">Certificazioni</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="#">Padova (PD), Italia</a></li>
+        <li><a href="mailto:info@bekelectric.com">info@bekelectric.com</a></li>
+        <li><a href="tel:+393505392789">+39 350 539 2789</a></li>
+        <li><a href="#">Lun-Ven 8:00-17:30</a></li>
+        <li><a href="https://wa.me/393505392789" target="_blank">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>&copy; 2024 BEK Electric Systems S.r.l. &middot; P.IVA 01234567890 &middot; Padova</span>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Condizioni di Vendita</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WhatsApp Float ── -->
+<a href="https://wa.me/393505392789?text=Ciao%20BEK%20Electric%2C%20vorrei%20un%20preventivo%20per%20un%20quadro%20antincendio." target="_blank" rel="noopener" class="wa-float" aria-label="Scrivici su WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+var currentSlide = 0;
+var TOTAL = 3;
+var autoTimer;
+
+function goToSlide(idx) {
+  var prev = currentSlide;
+  currentSlide = idx;
+  document.getElementById('slide-' + prev).classList.remove('active');
+  document.getElementById('sc-' + prev).classList.remove('active');
+  document.querySelectorAll('.slide-btn')[prev].classList.remove('active');
+  document.getElementById('slide-' + idx).classList.add('active');
+  setTimeout(function() { document.getElementById('sc-' + idx).classList.add('active'); }, 80);
+  document.querySelectorAll('.slide-btn')[idx].classList.add('active');
+  var pb = document.getElementById('hero-progress');
+  pb.classList.remove('running');
+  void pb.offsetWidth;
+  pb.classList.add('running');
+  clearInterval(autoTimer);
+  autoTimer = setInterval(nextSlide, 5500);
+}
+function nextSlide() { goToSlide((currentSlide + 1) % TOTAL); }
+autoTimer = setInterval(nextSlide, 5500);
+
+window.addEventListener('scroll', function() {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
+
+var revealObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(function(el) { revealObs.observe(el); });
+
+function scrollProd(dir) {
+  document.getElementById('prod-track').scrollBy({ left: dir * 380, behavior: 'smooth' });
+  setTimeout(updateProdArrows, 400);
+}
+function updateProdArrows() {
+  var t = document.getElementById('prod-track');
+  document.getElementById('prod-left').disabled = t.scrollLeft <= 0;
+  document.getElementById('prod-right').disabled = t.scrollLeft >= t.scrollWidth - t.clientWidth - 4;
+}
+
+function applyParallax() {
+  var scrollY = window.scrollY;
+  var vh = window.innerHeight;
+  var aboutSec = document.getElementById('about');
+  var aboutBg = document.getElementById('about-bg');
+  if (aboutSec && aboutBg) {
+    var rect = aboutSec.getBoundingClientRect();
+    if (rect.bottom > 0 && rect.top < vh) {
+      var progress = (scrollY - (aboutSec.offsetTop - vh)) / (rect.height + vh);
+      aboutBg.style.transform = 'translateY(' + ((progress - 0.5) * 20) + '%)';
+    }
+  }
+  var ctaSec = document.getElementById('cta');
+  var ctaBg = document.getElementById('cta-bg');
+  if (ctaSec && ctaBg) {
+    var rect2 = ctaSec.getBoundingClientRect();
+    if (rect2.bottom > 0 && rect2.top < vh) {
+      var progress2 = (scrollY - (ctaSec.offsetTop - vh)) / (rect2.height + vh);
+      ctaBg.style.transform = 'translateY(' + ((progress2 - 0.5) * 16) + '%)';
+    }
+  }
+}
+window.addEventListener('scroll', applyParallax, { passive: true });
+applyParallax();
+
+function toggleFaq(btn) {
+  var item = btn.closest('.faq-item');
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
