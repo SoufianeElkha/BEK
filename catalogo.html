@@ -75,6 +75,38 @@
     .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#F47920;color:#fff;padding:14px 28px;text-decoration:none;font-weight:700;font-size:.82rem;transition:background .2s;letter-spacing:.05em}
     .btn-cta:hover{background:#e06b15}
 
+    .site-footer{background:#F47920}
+    .footer-inner{max-width:1320px;margin:0 auto;padding:72px 40px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px}
+    .footer-brand p{color:rgba(255,255,255,.7);font-size:.82rem;line-height:1.7;margin-top:20px;max-width:260px}
+    .footer-logo-img{height:52px;width:auto}
+    .footer-logo-wrap{display:flex;align-items:center;gap:14px}
+    .footer-logo-text{display:flex;flex-direction:column;line-height:1.1}
+    .footer-logo-text span{color:#fff;font-weight:700;font-size:.95rem;letter-spacing:.06em}
+    .footer-logo-line{height:2px;background:#fff;margin-top:3px;width:100%;border-radius:1px}
+    .footer-logo-sep{width:1.5px;height:44px;background:rgba(255,255,255,.35)}
+    .footer-col h4{color:#fff;font-weight:700;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+    .footer-col ul a{color:rgba(255,255,255,.72);font-size:.82rem;transition:all .3s}
+    .footer-col ul a:hover{color:#fff;padding-left:4px}
+    .footer-social{display:flex;gap:10px;margin-top:20px}
+    .footer-social a{width:40px;height:40px;display:flex;align-items:center;justify-content:center;transition:all .3s;border-radius:8px}
+    .footer-social a:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.2)}
+    .footer-social a svg{width:18px;height:18px;fill:#fff}
+    .footer-social .social-linkedin{background:#0A66C2}
+    .footer-social .social-whatsapp{background:#25D366}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.2);padding:20px 40px;background:rgba(0,0,0,.08)}
+    .footer-bottom-inner{max-width:1320px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+    .footer-bottom-inner span,.footer-bottom-inner a{color:rgba(255,255,255,.55);font-size:.72rem}
+    .footer-bottom-inner a:hover{color:#fff}
+    .footer-legal{display:flex;gap:24px}
+
+    @media(max-width:1024px){
+      .footer-inner{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:600px){
+      .footer-inner{grid-template-columns:1fr}
+    }
+
     @media(max-width:900px){
       .top-bar{padding:0 16px;height:60px}
       .page-hd,.toolbar,.tbl-wrap{padding-left:16px;padding-right:16px}
@@ -159,6 +191,71 @@
   <a href="preventivo.html" class="btn-cta">Richiedi Preventivo</a>
   <p style="margin-top:24px;font-size:.82rem;color:rgba(255,255,255,.25)">Non hai trovato il modello giusto?<br><a href="preventivo.html" style="color:#F47920;font-weight:600">Contattaci</a> — realizziamo anche quadri su misura.</p>
 </div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="bek-logo-white.png" alt="BEK" class="footer-logo-img" />
+        <div class="footer-logo-sep"></div>
+        <div class="footer-logo-text">
+          <span>Electric</span>
+          <span>Systems</span>
+          <div class="footer-logo-line"></div>
+        </div>
+      </div>
+      <p>Quadri elettrici di comando per impianti antincendio conformi EN 12845. Qualita italiana, consegna rapida.</p>
+      <div class="footer-social">
+        <a href="https://linkedin.com/company/bek-electric-systems" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-linkedin">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://wa.me/393505392789" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-whatsapp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Prodotti</h4>
+      <ul>
+        <li><a href="catalogo.html">BEK Smart DOL</a></li>
+        <li><a href="catalogo.html?cat=star-delta">BEK Smart Y/&#916;</a></li>
+        <li><a href="catalogo-reacto.html">BEK Reacto Fuel</a></li>
+        <li><a href="preventivo.html">Quadri su Misura</a></li>
+        <li><a href="preventivo.html">Richiedi Preventivo</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Azienda</h4>
+      <ul>
+        <li><a href="index.html#about">Chi Siamo</a></li>
+        <li><a href="index.html#perche">Vantaggi</a></li>
+        <li><a href="index.html#cert">Certificazioni</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="index.html#contatti">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="#">Padova (PD), Italia</a></li>
+        <li><a href="mailto:info@bekelectric.com">info@bekelectric.com</a></li>
+        <li><a href="tel:+393505392789">+39 350 539 2789</a></li>
+        <li><a href="#">Lun-Ven 8:00-17:30</a></li>
+        <li><a href="https://linkedin.com/company/bek-electric-systems" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>&copy; 2025 BEK Electric Systems S.r.l. &middot; Padova</span>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Condizioni di Vendita</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <script>
 var PRODUCTS=[{"code":"10100341","name":"Fire Pump Control Panel \u2013 3kW 400V DOL","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":3,"hp":5,"currentMax":7,"box":{"h":500,"l":400,"w":200},"weight":16.8,"price":605.00},{"code":"10100541","name":"Fire Pump Control Panel \u2013 5.5kW 400V DOL","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":5.5,"hp":7.5,"currentMax":12,"box":{"h":500,"l":400,"w":200},"weight":16.8,"price":610.00},{"code":"10100741","name":"Fire Pump Control Panel \u2013 7.5kW 400V DOL","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":7.5,"hp":10,"currentMax":16,"box":{"h":500,"l":400,"w":200},"weight":17,"price":615.00},{"code":"10101141","name":"Fire Pump Control Panel \u2013 11kW 400V DOL","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":11,"hp":15,"currentMax":24,"box":{"h":500,"l":400,"w":200},"weight":17.6,"price":660.00},{"code":"10101142","name":"Fire Pump Control Panel \u2013 11kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":11,"hp":15,"currentMax":24,"box":{"h":500,"l":400,"w":200},"weight":18.3,"price":689.99},{"code":"10101541","name":"Fire Pump Control Panel \u2013 15kW 400V DOL","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":15,"hp":20,"currentMax":32,"box":{"h":500,"l":400,"w":200},"weight":17.8,"price":660.00},{"code":"10101542","name":"Fire Pump Control Panel \u2013 15kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":15,"hp":20,"currentMax":32,"box":{"h":500,"l":400,"w":200},"weight":18,"price":710.00},{"code":"10101841","name":"Fire Pump Control Panel \u2013 18.5kW 400V DOL","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":18.5,"hp":25,"currentMax":36,"box":{"h":500,"l":400,"w":200},"weight":18.5,"price":670.00},{"code":"10101842","name":"Fire Pump Control Panel \u2013 18.5kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":18.5,"hp":25,"currentMax":36,"box":{"h":500,"l":400,"w":200},"weight":18.5,"price":715.00},{"code":"10102241","name":"Fire Pump Control Panel \u2013 22kW 400V DOL","category":"direct","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":22,"hp":30,"currentMax":40,"box":{"h":500,"l":400,"w":200},"weight":19,"price":720.00},{"code":"10102242","name":"Fire Pump Control Panel \u2013 22kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":22,"hp":30,"currentMax":40,"box":{"h":500,"l":400,"w":200},"weight":19.2,"price":740.10},{"code":"10103042","name":"Fire Pump Control Panel \u2013 30kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":30,"hp":40,"currentMax":60,"box":{"h":500,"l":400,"w":200},"weight":20.1,"price":810.00},{"code":"10103742","name":"Fire Pump Control Panel \u2013 37kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":37,"hp":50,"currentMax":70,"box":{"h":700,"l":500,"w":250},"weight":33.6,"price":1050.00},{"code":"10104542","name":"Fire Pump Control Panel \u2013 45kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":45,"hp":60,"currentMax":80,"box":{"h":700,"l":500,"w":250},"weight":34,"price":1070.00},{"code":"10105542","name":"Fire Pump Control Panel \u2013 55kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":55,"hp":75,"currentMax":100,"box":{"h":700,"l":500,"w":250},"weight":38.5,"price":1320.09},{"code":"10107542","name":"Fire Pump Control Panel \u2013 75kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":75,"hp":100,"currentMax":132,"box":{"h":800,"l":600,"w":250},"weight":54.5,"price":1545.00},{"code":"10109042","name":"Fire Pump Control Panel \u2013 90kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":90,"hp":125,"currentMax":160,"box":{"h":800,"l":600,"w":250},"weight":64,"price":1809.97},{"code":"10111042","name":"Fire Pump Control Panel \u2013 110kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":110,"hp":150,"currentMax":200,"box":{"h":800,"l":600,"w":250},"weight":85,"price":2064.70},{"code":"10113242","name":"Fire Pump Control Panel \u2013 132kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":132,"hp":200,"currentMax":240,"box":{"h":1000,"l":800,"w":300},"weight":95,"price":2620.00},{"code":"10116042","name":"Fire Pump Control Panel \u2013 160kW 400V YD","category":"star-delta","voltage":"3 ~ 400 V","frequency":"50/60 Hz","kw":160,"hp":200,"currentMax":296,"box":{"h":1000,"l":800,"w":300},"weight":100,"price":4200.00}];
