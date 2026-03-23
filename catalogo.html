@@ -13,11 +13,11 @@
     body{font-family:'Exo 2',sans-serif;color:#fff;background:#111318;overflow-x:hidden;width:100%;-webkit-font-smoothing:antialiased}
     a{text-decoration:none}
 
-    .top-bar{position:sticky;top:0;z-index:100;background:rgba(17,19,24,.96);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.05);height:72px}
+    .top-bar{position:sticky;top:0;z-index:100;background:rgba(17,19,24,.96);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.05);height:96px}
     .top-bar-inner{max-width:1320px;margin:0 auto;padding:0 40px;height:100%;display:flex;align-items:center;justify-content:space-between}
     .logo{display:flex;align-items:center;user-select:none;gap:12px}
-    .logo-img{height:38px;width:auto}
-    .logo-sep{width:2px;height:36px;background:rgba(255,255,255,.2)}
+    .logo-img{height:76px;width:auto}
+    .logo-sep{width:2px;height:56px;background:rgba(255,255,255,.2)}
     .logo-text{display:flex;flex-direction:column;line-height:1.15}
     .logo-text span{color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.08em}
     .logo-line{height:2px;background:#F47920;margin-top:2px}
@@ -110,7 +110,7 @@
     }
 
     @media(max-width:900px){
-      .top-bar{padding:0 16px;height:60px}
+      .top-bar{padding:0 16px;height:80px}
       .page-hd,.toolbar,.tbl-wrap{padding-left:16px;padding-right:16px}
       .tbl thead{display:none}
       .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
@@ -193,7 +193,7 @@
   <br>
   <h3 style="margin-top:28px">Hai trovato il modello giusto?</h3>
   <p>Richiedi subito il tuo preventivo personalizzato. Risposta entro 24 ore lavorative.</p>
-  <a href="preventivo.html" class="btn-cta">Richiedi Preventivo</a>
+  <a href="preventivo.html" class="btn-cta">Richiedi Preventivo / Ordine</a>
   <p style="margin-top:24px;font-size:.82rem;color:rgba(255,255,255,.25)">Non hai trovato il modello giusto?<br><a href="preventivo.html" style="color:#F47920;font-weight:600">Contattaci</a> — realizziamo anche quadri su misura.</p>
 </div>
 
@@ -293,7 +293,7 @@ function render(){
     var dims=p.box.h+' \u00d7 '+p.box.l+' \u00d7 '+p.box.w;
     var mp=encodeURIComponent(p.name);
     var priceStr=p.price.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2})+' \u20ac';
-    tbody.innerHTML+='<tr><td class="td-name"><div class="pname">'+p.name+'</div><div class="pcode">'+p.code+'</div></td><td>'+badge+'</td><td class="td-kw">'+p.kw+' kW</td><td class="td-sub" data-label="HP">'+p.hp+' HP</td><td class="td-sub" data-label="Corrente">'+p.currentMax+' A</td><td class="td-vol" data-label="Tensione">'+p.voltage+'</td><td class="td-dims" data-label="Dimensioni">'+dims+' mm</td><td class="td-sub" data-label="Peso">'+p.weight+' kg</td><td class="td-price" data-label="Prezzo">'+priceStr+'</td><td style="text-align:right"><a href="preventivo.html?model='+mp+'" class="btn-prev">Preventivo \u2192</a></td></tr>';
+    tbody.innerHTML+='<tr><td class="td-name"><div class="pname">'+p.name+'</div><div class="pcode">'+p.code+'</div></td><td>'+badge+'</td><td class="td-kw">'+p.kw+' kW</td><td class="td-sub" data-label="HP">'+p.hp+' HP</td><td class="td-sub" data-label="Corrente">'+p.currentMax+' A</td><td class="td-vol" data-label="Tensione">'+p.voltage+'</td><td class="td-dims" data-label="Dimensioni">'+dims+' mm</td><td class="td-sub" data-label="Peso">'+p.weight+' kg</td><td class="td-price" data-label="Prezzo">'+priceStr+'</td><td style="text-align:right"><a href="preventivo.html?model='+mp+'" class="btn-prev">Preventivo / Ordine \u2192</a></td></tr>';
   }
 }
 
