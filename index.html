@@ -174,6 +174,19 @@
   .credential-item:not(:last-child) { border-right: 1px solid rgba(255,255,255,.08); margin-right: 28px; }
   .credential-item span { color: rgba(255,255,255,.25); font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 
+  /* ── BRANDS ── */
+  #brands { padding: 80px 0; background: var(--bg-primary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+  .brands-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; text-align: center; }
+  .brands-title { color: var(--accent); font-size: .68rem; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; margin-bottom: 48px; line-height: 1.8; }
+  .brands-track-wrap { position: relative; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+  .brands-track { display: flex; align-items: center; gap: 64px; animation: brands-scroll 25s linear infinite; width: max-content; }
+  @keyframes brands-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .brand-item { display: flex; align-items: center; justify-content: center; flex-shrink: 0; height: 48px; padding: 0 8px; opacity: .35; transition: opacity .4s, filter .4s; filter: grayscale(1) brightness(2); }
+  .brand-item:hover { opacity: 1; filter: grayscale(0) brightness(1); }
+  .brand-item svg { height: 34px; width: auto; }
+  .brand-item .brand-text { font-size: 1.5rem; font-weight: 800; letter-spacing: .04em; color: #fff; white-space: nowrap; font-family: var(--font-display); }
+  .brand-item .brand-text-sm { font-size: .55rem; color: rgba(255,255,255,.4); letter-spacing: .06em; display: block; text-align: left; margin-top: -2px; }
+
   /* ── VANTAGGI ── */
   #perche { padding: 120px 0; background: var(--bg-secondary); position: relative; overflow: hidden; }
   .perche-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
@@ -549,6 +562,54 @@ in 8 giorni</h1>
         <div class="credential-item"><span>EN 17451</span></div>
         <div class="credential-item"><span>UNI 11292</span></div>
         <div class="credential-item"><span>3 – 160 kW</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="brands">
+  <div class="brands-inner">
+    <div class="brands-title reveal">Componenti elettrici di qualit&agrave; e marche riconosciute</div>
+    <div class="brands-track-wrap">
+      <div class="brands-track">
+        <!-- Set 1 -->
+        <div class="brand-item">
+          <svg viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="36" font-family="Arial,sans-serif" font-weight="800" font-size="32" fill="#3DCD58">Schneider</text></svg>
+        </div>
+        <div class="brand-item">
+          <svg viewBox="0 0 220 48" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="36" font-family="Arial,sans-serif" font-weight="700" font-size="30" fill="#0098DB">Weidm&uuml;ller</text></svg>
+        </div>
+        <div class="brand-item">
+          <svg viewBox="0 0 100 48" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="38" font-family="Arial,sans-serif" font-weight="900" font-size="38" fill="#FF000F">ABB</text></svg>
+        </div>
+        <div class="brand-item">
+          <svg viewBox="0 0 130 48" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="36" font-family="Arial,sans-serif" font-weight="800" font-size="32" fill="#003B64">EATON</text></svg>
+        </div>
+        <div class="brand-item">
+          <svg viewBox="0 0 160 48" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="36" font-family="Arial,sans-serif" font-weight="700" font-size="32" fill="#009999">SIEMENS</text></svg>
+        </div>
+        <div class="brand-item">
+          <svg viewBox="0 0 120 48" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="36" font-family="Arial,sans-serif" font-weight="900" font-size="34" fill="#F47920">WAGO</text></svg>
+        </div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="brand-item">
+          <svg viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="36" font-family="Arial,sans-serif" font-weight="800" font-size="32" fill="#3DCD58">Schneider</text></svg>
+        </div>
+        <div class="brand-item">
+          <svg viewBox="0 0 220 48" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="36" font-family="Arial,sans-serif" font-weight="700" font-size="30" fill="#0098DB">Weidm&uuml;ller</text></svg>
+        </div>
+        <div class="brand-item">
+          <svg viewBox="0 0 100 48" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="38" font-family="Arial,sans-serif" font-weight="900" font-size="38" fill="#FF000F">ABB</text></svg>
+        </div>
+        <div class="brand-item">
+          <svg viewBox="0 0 130 48" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="36" font-family="Arial,sans-serif" font-weight="800" font-size="32" fill="#003B64">EATON</text></svg>
+        </div>
+        <div class="brand-item">
+          <svg viewBox="0 0 160 48" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="36" font-family="Arial,sans-serif" font-weight="700" font-size="32" fill="#009999">SIEMENS</text></svg>
+        </div>
+        <div class="brand-item">
+          <svg viewBox="0 0 120 48" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="36" font-family="Arial,sans-serif" font-weight="900" font-size="34" fill="#F47920">WAGO</text></svg>
+        </div>
       </div>
     </div>
   </div>
