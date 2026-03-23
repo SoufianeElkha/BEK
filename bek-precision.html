@@ -257,6 +257,15 @@
     .cert-grid { grid-template-columns: 1fr; }
     .steps-row { grid-template-columns: 1fr; }
   }
+  .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(18,21,27,.95);border-top:1px solid rgba(255,255,255,.06);padding:20px 40px;display:none;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;backdrop-filter:blur(20px) saturate(1.4)}
+  .cookie-banner.show{display:flex}
+  .cookie-banner p{color:rgba(255,255,255,.55);font-size:.82rem;line-height:1.6;max-width:600px}
+  .cookie-banner p a{color:#F47920;text-decoration:underline}
+  .cookie-banner-btns{display:flex;gap:10px;flex-shrink:0}
+  .cookie-btn-accept{padding:10px 24px;background:#F47920;color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.06em;border:none;border-radius:6px;cursor:pointer;transition:all .3s}
+  .cookie-btn-accept:hover{background:#e06b15}
+  .cookie-btn-reject{padding:10px 24px;background:transparent;color:rgba(255,255,255,.55);font-weight:600;font-size:.72rem;letter-spacing:.06em;border:1px solid rgba(255,255,255,.06);border-radius:6px;cursor:pointer;transition:all .3s}
+  .cookie-btn-reject:hover{border-color:rgba(255,255,255,.2);color:#fff}
 </style>
 </head>
 <body>
@@ -734,7 +743,7 @@
   </div>
   <div class="footer-bottom">
     <div class="footer-bottom-inner">
-      <span>&copy; 2025 BEK Electric Systems S.r.l. &middot; Padova</span>
+      <span>&copy; 2025 BEK Electric Systems &middot; Padova (IT)</span>
       <div class="footer-legal">
         <a href="#">Privacy Policy</a>
         <a href="#">Cookie Policy</a>
@@ -824,5 +833,7 @@ function toggleFaq(btn) {
   if (!wasOpen) item.classList.add('open');
 }
 </script>
+<div class="cookie-banner" id="cookieBanner"><p>Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. Continuando la navigazione accetti l'utilizzo dei cookie. <a href="#">Cookie Policy</a></p><div class="cookie-banner-btns"><button class="cookie-btn-accept" onclick="acceptCookies()">ACCETTA</button><button class="cookie-btn-reject" onclick="rejectCookies()">RIFIUTA</button></div></div>
+<script>function acceptCookies(){localStorage.setItem('bek_cookies','accepted');document.getElementById('cookieBanner').classList.remove('show');}function rejectCookies(){localStorage.setItem('bek_cookies','rejected');document.getElementById('cookieBanner').classList.remove('show');}if(!localStorage.getItem('bek_cookies')){document.getElementById('cookieBanner').classList.add('show');}</script>
 </body>
 </html>
