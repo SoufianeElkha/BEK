@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BEK Reacto — Catalogo Prodotti</title>
-  <link rel="icon" type="image/png" href="favicon-bek.png">
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -126,7 +126,7 @@
 <div class="top-bar">
   <div class="top-bar-inner">
   <a href="index.html" class="logo">
-    <img src="bek-logo-orange.png" alt="BEK" class="logo-img" />
+    <img src="assets/logos/logo-orange.png" alt="BEK" class="logo-img" />
     <div class="logo-sep"></div>
     <div class="logo-text">
       <span>Electric</span>
@@ -150,7 +150,7 @@
     <p>Quadri di comando per elettropompe antincendio EN 12845 — motopompa diesel autonoma.</p>
     <div class="norm-badge">Conformi EN 12845 · 0 – 232 kW · 6 modelli</div>
   </div>
-  <img src="img/product-diesel.png" alt="BEK Diesel Fire Pump Control Panel" class="page-hd-img" />
+  <img src="assets/images/products/diesel.png" alt="BEK Diesel Fire Pump Control Panel" class="page-hd-img" />
 </div>
 
 <div class="toolbar">
@@ -185,26 +185,26 @@
   <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:28px 32px;text-align:center">
     <div style="font-size:.62rem;font-weight:700;color:#F47920;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px">Involucro standard</div>
     <p style="font-size:.92rem;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:8px">Tutti i quadri sono forniti in <strong style="color:#fff">cassetta metallica</strong>, colore <strong style="color:#fff">RAL 7035</strong> (grigio chiaro), con grado di protezione <strong style="color:#fff">IP54</strong>.</p>
-    <p style="font-size:.82rem;color:rgba(255,255,255,.35);line-height:1.7">Hai bisogno di un colore diverso o di un grado IP differente? Nessun problema — <a href="preventivo.html" style="color:#F47920;font-weight:600">richiedi un preventivo</a> indicando nelle note le caratteristiche desiderate.</p>
+    <p style="font-size:.82rem;color:rgba(255,255,255,.35);line-height:1.7">Hai bisogno di un colore diverso o di un grado IP differente? Nessun problema — <a href="quote.html" style="color:#F47920;font-weight:600">richiedi un preventivo</a> indicando nelle note le caratteristiche desiderate.</p>
   </div>
 </div>
 
 <div class="cta-strip">
   <h3>Cerchi DOL o Stella-Triangolo?</h3>
   <p>Scopri la linea BEK Electric — 20 modelli da 3 a 160 kW, conformi EN 12845.</p>
-  <a href="catalogo.html" class="btn-cta" style="margin-bottom:20px">Vedi Catalogo BEK Electric</a>
+  <a href="catalog.html" class="btn-cta" style="margin-bottom:20px">Vedi Catalogo BEK Electric</a>
   <br>
   <h3 style="margin-top:28px">Hai trovato il modello giusto?</h3>
   <p>Richiedi subito il tuo preventivo personalizzato. Risposta entro 24 ore lavorative.</p>
-  <a href="preventivo.html" class="btn-cta">Richiedi Preventivo / Ordine</a>
-  <p style="margin-top:24px;font-size:.82rem;color:rgba(255,255,255,.25)">Non hai trovato il modello giusto?<br><a href="preventivo.html" style="color:#F47920;font-weight:600">Contattaci</a> — realizziamo anche quadri su misura.</p>
+  <a href="quote.html" class="btn-cta">Richiedi Preventivo / Ordine</a>
+  <p style="margin-top:24px;font-size:.82rem;color:rgba(255,255,255,.25)">Non hai trovato il modello giusto?<br><a href="quote.html" style="color:#F47920;font-weight:600">Contattaci</a> — realizziamo anche quadri su misura.</p>
 </div>
 
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="footer-logo-wrap">
-        <img src="bek-logo-white.png" alt="BEK" class="footer-logo-img" />
+        <img src="assets/logos/logo-white.png" alt="BEK" class="footer-logo-img" />
         <div class="footer-logo-sep"></div>
         <div class="footer-logo-text">
           <span>Electric</span>
@@ -217,11 +217,11 @@
     <div class="footer-col">
       <h4>Prodotti</h4>
       <ul>
-        <li><a href="catalogo.html">BEK Electric DOL</a></li>
-        <li><a href="catalogo.html?cat=star-delta">BEK Electric Y/&#916;</a></li>
-        <li><a href="catalogo-reacto.html">BEK Reacto Fuel</a></li>
-        <li><a href="preventivo.html">Quadri su Misura</a></li>
-        <li><a href="preventivo.html">Richiedi Preventivo</a></li>
+        <li><a href="catalog.html">BEK Electric DOL</a></li>
+        <li><a href="catalog.html?cat=star-delta">BEK Electric Y/&#916;</a></li>
+        <li><a href="catalog-diesel.html">BEK Reacto Fuel</a></li>
+        <li><a href="quote.html">Quadri su Misura</a></li>
+        <li><a href="quote.html">Richiedi Preventivo</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -294,7 +294,7 @@ function render(){
     var dims=p.box.h+' \u00d7 '+p.box.l+' \u00d7 '+p.box.w;
     var mp=encodeURIComponent(p.name);
     var priceStr=p.price.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2})+' \u20ac';
-    tbody.innerHTML+='<tr><td class="td-name"><div class="pname">'+p.name+'</div><div class="pcode">'+p.code+'</div></td><td><span class="badge b-reacto">REACTO</span></td><td class="td-kw">'+p.kwRange+' kW</td><td class="td-sub" data-label="HP">'+p.hpRange+' HP</td><td class="td-sub" data-label="Corrente">'+p.currentMax+' A</td><td class="td-vol" data-label="Tensione">'+p.voltage+'</td><td class="td-dims" data-label="Dimensioni">'+dims+' mm</td><td class="td-sub" data-label="Peso">'+p.weight+' kg</td><td class="td-price" data-label="Prezzo">'+priceStr+'</td><td style="text-align:right"><a href="preventivo.html?model='+mp+'" class="btn-prev">Preventivo / Ordine \u2192</a></td></tr>';
+    tbody.innerHTML+='<tr><td class="td-name"><div class="pname">'+p.name+'</div><div class="pcode">'+p.code+'</div></td><td><span class="badge b-reacto">REACTO</span></td><td class="td-kw">'+p.kwRange+' kW</td><td class="td-sub" data-label="HP">'+p.hpRange+' HP</td><td class="td-sub" data-label="Corrente">'+p.currentMax+' A</td><td class="td-vol" data-label="Tensione">'+p.voltage+'</td><td class="td-dims" data-label="Dimensioni">'+dims+' mm</td><td class="td-sub" data-label="Peso">'+p.weight+' kg</td><td class="td-price" data-label="Prezzo">'+priceStr+'</td><td style="text-align:right"><a href="quote.html?model='+mp+'" class="btn-prev">Preventivo / Ordine \u2192</a></td></tr>';
   }
 }
 
