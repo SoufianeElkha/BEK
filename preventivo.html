@@ -14,11 +14,11 @@
     body { font-family: 'Exo 2', sans-serif; color: #fff; background: #111318; overflow-x: hidden; width: 100%; -webkit-font-smoothing: antialiased; }
     a { text-decoration: none; }
 
-    .top-bar { position: sticky; top: 0; z-index: 100; background: rgba(17,19,24,.96); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,.05); height: 72px; }
+    .top-bar { position: sticky; top: 0; z-index: 100; background: rgba(17,19,24,.96); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,.05); height: 96px; }
     .top-bar-inner { max-width: 1320px; margin: 0 auto; padding: 0 40px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
     .logo { display: flex; align-items: center; user-select: none; gap: 12px; }
-    .logo-img { height: 38px; width: auto; }
-    .logo-sep { width: 2px; height: 36px; background: rgba(255,255,255,.2); }
+    .logo-img { height: 76px; width: auto; }
+    .logo-sep { width: 2px; height: 56px; background: rgba(255,255,255,.2); }
     .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
     .logo-text span { color: #fff; font-weight: 700; font-size: .82rem; letter-spacing: .08em; }
     .logo-line { height: 2px; background: #F47920; margin-top: 2px; }
@@ -150,7 +150,7 @@
     }
 
     @media (max-width: 900px) {
-      .top-bar { padding: 0 16px; height: 60px; }
+      .top-bar { padding: 0 16px; height: 80px; }
       .page-header { padding: 40px 16px 28px; }
       .main-layout { padding: 0 16px 60px; grid-template-columns: 1fr; }
       .form-card { position: static; }
@@ -367,9 +367,13 @@
             </optgroup>
           </select>
         </div>
+        <div class="frow2">
+          <div class="fg"><label>Quantita *</label><input type="number" id="f-qty" min="1" value="1" placeholder="1"></div>
+          <div class="fg"><label>Data di consegna desiderata</label><input type="date" id="f-delivery" style="color-scheme:dark"></div>
+        </div>
         <div class="fg">
-          <label>Quantita e specifiche</label>
-          <textarea placeholder="Es: 2x Directo-EN / 15 kW trifase 400V, con quadro jockey. Cantiere: Milano."></textarea>
+          <label>Note e specifiche</label>
+          <textarea id="f-note" placeholder="Es: con quadro jockey, cantiere Milano, specifiche aggiuntive..."></textarea>
         </div>
         <div id="form-error"></div>
         <button type="button" class="btn-submit" id="submit-btn" onclick="submitForm(event)">
@@ -549,7 +553,9 @@
     fd.append('telefono', (document.querySelector('input[type="tel"]') || {}).value || '');
     fd.append('versione', isTarga ? 'Preventivo con Targa Personalizzata' : 'Preventivo Semplice');
     fd.append('modello', (document.getElementById('form-model') || {}).value || '');
-    fd.append('note', (document.querySelector('textarea') || {}).value || '');
+    fd.append('quantita', (document.getElementById('f-qty') || {}).value || '1');
+    fd.append('data_consegna', (document.getElementById('f-delivery') || {}).value || 'Non specificata');
+    fd.append('note', (document.getElementById('f-note') || {}).value || '');
 
     function doSubmit() {
       fetch('https://formspree.io/f/xaqploqj', { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd })
