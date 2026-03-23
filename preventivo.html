@@ -99,6 +99,9 @@
     .btn-download { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.1); padding: 8px 16px; font-family: 'Exo 2', sans-serif; font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.4); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all .2s; }
     .btn-download:hover { color: #fff; border-color: rgba(255,255,255,.25); }
 
+    .hp-wrap { position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; pointer-events: none; tab-index: -1; }
+    .captcha-row { display: flex; align-items: flex-end; gap: 12px; }
+    .captcha-row .captcha-q { font-size: .82rem; color: rgba(255,255,255,.5); white-space: nowrap; padding-bottom: 13px; font-weight: 600; }
     .form-card { position: sticky; top: 80px; }
     .fg { margin-bottom: 12px; }
     .fg label { font-size: .62rem; font-weight: 700; color: rgba(255,255,255,.3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 5px; display: block; }
@@ -375,6 +378,11 @@
           <label>Note e specifiche</label>
           <textarea id="f-note" placeholder="Es: con quadro jockey, cantiere Milano, specifiche aggiuntive..."></textarea>
         </div>
+        <div class="hp-wrap" aria-hidden="true"><label>Lascia vuoto</label><input type="text" id="f-website" name="website" autocomplete="off" tabindex="-1"></div>
+        <div class="captcha-row">
+          <div class="fg" style="flex:1"><label>Verifica anti-bot *</label><input type="text" id="f-captcha" placeholder="" autocomplete="off"></div>
+          <span class="captcha-q" id="captcha-q"></span>
+        </div>
         <div id="form-error"></div>
         <button type="button" class="btn-submit" id="submit-btn" onclick="submitForm(event)">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -448,6 +456,15 @@
 </footer>
 
 <script>
+  var _formLoadTs = Date.now();
+  var _capA, _capB;
+  (function initCaptcha() {
+    _capA = Math.floor(Math.random() * 10) + 1;
+    _capB = Math.floor(Math.random() * 10) + 1;
+    document.getElementById('captcha-q').textContent = 'Quanto fa ' + _capA + ' + ' + _capB + '?';
+    document.getElementById('f-captcha').placeholder = _capA + ' + ' + _capB + ' = ?';
+  })();
+
   (function() {
     var p = new URLSearchParams(location.search).get('model');
     var sel = document.getElementById('in-model');
@@ -538,6 +555,26 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
       errEl.textContent = 'Inserisci un indirizzo email valido.';
       errEl.style.display = 'block';
+      return;
+    }
+    // Anti-bot: honeypot
+    if (document.getElementById('f-website').value) {
+      errEl.textContent = 'Invio non consentito.';
+      errEl.style.display = 'block';
+      return;
+    }
+    // Anti-bot: time check (min 3 secondi)
+    if (Date.now() - _formLoadTs < 3000) {
+      errEl.textContent = 'Attendi qualche secondo prima di inviare.';
+      errEl.style.display = 'block';
+      return;
+    }
+    // Anti-bot: math captcha
+    var captchaVal = parseInt(document.getElementById('f-captcha').value, 10);
+    if (captchaVal !== (_capA + _capB)) {
+      errEl.textContent = 'Risposta alla verifica anti-bot errata. Quanto fa ' + _capA + ' + ' + _capB + '?';
+      errEl.style.display = 'block';
+      document.getElementById('f-captcha').focus();
       return;
     }
     var btn = document.getElementById('submit-btn');
