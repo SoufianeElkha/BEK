@@ -89,6 +89,29 @@
       .footer-inner{grid-template-columns:1fr}
     }
 
+    /* ── COME FUNZIONA ── */
+    .processo { padding: 60px 40px 0; max-width: 1320px; margin: 0 auto; }
+    .processo-title { font-size: .65rem; font-weight: 700; color: #F47920; letter-spacing: .3em; text-transform: uppercase; margin-bottom: 12px; display: block; }
+    .processo h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; color: #fff; letter-spacing: -1px; margin-bottom: 8px; }
+    .processo h2 span { color: #F47920; }
+    .processo-sub { font-size: .88rem; color: rgba(255,255,255,.4); margin-bottom: 36px; }
+    .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .tl-step { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.08); padding: 28px 22px; position: relative; transition: border-color .3s; }
+    .tl-step:hover { border-color: rgba(244,121,32,.3); }
+    .tl-dot { width: 36px; height: 36px; border-radius: 50%; background: rgba(244,121,32,.12); color: #F47920; font-weight: 800; font-size: .9rem; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; border: 1px solid rgba(244,121,32,.2); }
+    .tl-tag { font-size: .55rem; font-weight: 700; color: rgba(255,255,255,.2); letter-spacing: .15em; text-transform: uppercase; margin-bottom: 8px; }
+    .tl-step h4 { font-size: .88rem; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -.2px; }
+    .tl-step p { font-size: .78rem; color: rgba(255,255,255,.4); line-height: 1.65; }
+    .tl-icon { margin-top: 14px; font-size: .6rem; font-weight: 700; color: #F47920; letter-spacing: .1em; padding: 5px 10px; background: rgba(244,121,32,.08); border: 1px solid rgba(244,121,32,.15); display: inline-block; }
+
+    @media (max-width: 1024px) {
+      .timeline { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .timeline { grid-template-columns: 1fr; }
+      .processo { padding: 48px 16px 0; }
+    }
+
     @media (max-width: 900px) {
       .top-bar { padding: 0 16px; height: 80px; }
       .page-header { padding: 40px 16px 28px; }
@@ -131,6 +154,43 @@
   <span class="eyebrow">Preventivo</span>
   <h1>Richiedi il tuo preventivo</h1>
   <p>Compila il modulo con i dati tecnici e ti risponderemo entro 24 ore lavorative.</p>
+</div>
+
+<!-- COME FUNZIONA -->
+<div class="processo">
+  <span class="processo-title">Il nostro processo</span>
+  <h2>Come <span>funziona</span></h2>
+  <p class="processo-sub">Dalla richiesta alla consegna: semplice, rapido, trasparente.</p>
+  <div class="timeline">
+    <div class="tl-step">
+      <div class="tl-dot">1</div>
+      <div class="tl-tag">STEP 1</div>
+      <h4>Richiedi il preventivo</h4>
+      <p>Compila il modulo online, scrivici su WhatsApp, chiamaci o inviaci una email. Risposta entro 24 ore lavorative.</p>
+      <div class="tl-icon">24H RISPOSTA GARANTITA</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">2</div>
+      <div class="tl-tag">STEP 2</div>
+      <h4>Conferma l'ordine</h4>
+      <p>Ricevi il preventivo dettagliato, confermalo per iscritto. Nessun anticipo su modelli a stock. Pagamento a 30 gg fattura.</p>
+      <div class="tl-icon">ZERO ANTICIPO</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">3</div>
+      <div class="tl-tag">STEP 3</div>
+      <h4>Produzione &amp; test completi</h4>
+      <p>Il quadro viene assemblato e testato internamente: calibrazione, prova motore, misura isolamento. Verbale di collaudo allegato.</p>
+      <div class="tl-icon">100% FACTORY TESTED</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">4</div>
+      <div class="tl-tag">STEP 4</div>
+      <h4>Consegna in 8 giorni</h4>
+      <p>Spedizione in tutta Italia con corriere tracciato. Tempi certi e rispettati per modelli a stock.</p>
+      <div class="tl-icon">SPEDIZIONE TRACCIATA</div>
+    </div>
+  </div>
 </div>
 
 <div class="main-layout" id="main-layout">
@@ -239,10 +299,10 @@
     <div class="footer-col">
       <h4>Azienda</h4>
       <ul>
-        <li><a href="index.html#about">Chi Siamo</a></li>
+        <li><a href="about.html">Chi Siamo</a></li>
         <li><a href="index.html#perche">Vantaggi</a></li>
-        <li><a href="index.html#cert">Certificazioni</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="certifications.html">Certificazioni</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="index.html#contatti">Contatti</a></li>
       </ul>
     </div>
