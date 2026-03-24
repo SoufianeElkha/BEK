@@ -233,9 +233,30 @@
   .wa-float svg { width: 28px; height: 28px; }
 
   /* ── Responsive ── */
+  /* ── MOBILE MENU ── */
+  .menu-toggle { display: none; width: 44px; height: 44px; background: none; border: 1px solid rgba(255,255,255,.12); border-radius: 6px; align-items: center; justify-content: center; cursor: pointer; transition: all .3s; flex-shrink: 0; }
+  .menu-toggle:hover { border-color: rgba(255,255,255,.25); background: rgba(255,255,255,.05); }
+  .menu-toggle span { display: block; width: 20px; height: 2px; background: #fff; position: relative; transition: all .3s; }
+  .menu-toggle span::before, .menu-toggle span::after { content: ''; position: absolute; left: 0; width: 100%; height: 2px; background: #fff; transition: all .3s; }
+  .menu-toggle span::before { top: -6px; }
+  .menu-toggle span::after { top: 6px; }
+  .menu-toggle.open span { background: transparent; }
+  .menu-toggle.open span::before { top: 0; transform: rotate(45deg); }
+  .menu-toggle.open span::after { top: 0; transform: rotate(-45deg); }
+  #header.scrolled-orange .menu-toggle { border-color: rgba(255,255,255,.3); }
+  .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 99; background: rgba(12,14,18,.97); backdrop-filter: blur(24px); padding: 120px 32px 40px; flex-direction: column; gap: 0; overflow-y: auto; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { color: rgba(255,255,255,.6); font-size: 1.1rem; font-weight: 600; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.06); transition: color .3s; font-family: var(--font-display); letter-spacing: .02em; }
+  .mobile-nav a:hover, .mobile-nav a.active { color: #F47920; }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav-footer { margin-top: auto; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; gap: 16px; }
+  .mobile-nav-phone { color: rgba(255,255,255,.5); font-size: .9rem; display: flex; align-items: center; gap: 10px; }
+  .mobile-nav-cta { display: inline-block; padding: 14px 28px; background: #F47920; color: #fff; font-weight: 700; font-size: .82rem; letter-spacing: .08em; border-radius: 6px; text-align: center; transition: all .3s; }
+
   @media (max-width: 900px) {
     nav { display: none; }
     .header-phone { display: none; }
+    .menu-toggle { display: flex; }
     .hero-slide-content { left: 30px; right: 30px; }
     .hero-nav { left: 30px; }
     .footer-inner { grid-template-columns: 1fr 1fr; }
@@ -296,9 +317,27 @@
         +39 350 539 2789
       </a>
       <a href="quote.html" class="btn-contact">PREVENTIVO</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span></button>
     </div>
   </div>
 </header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#products" onclick="closeMobileNav()">Prodotti</a>
+  <a href="about.html">Chi Siamo</a>
+  <a href="warranty.html">Garanzia</a>
+  <a href="#perche" onclick="closeMobileNav()">Vantaggi</a>
+  <a href="certifications.html">Certificazioni</a>
+  <a href="faq.html">FAQ</a>
+  <a href="#contatti" onclick="closeMobileNav()">Contatti</a>
+  <div class="mobile-nav-footer">
+    <a href="tel:+393505392789" class="mobile-nav-phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#F47920" stroke-width="1.5" style="width:18px;height:18px"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+      +39 350 539 2789
+    </a>
+    <a href="quote.html" class="mobile-nav-cta">RICHIEDI PREVENTIVO</a>
+  </div>
+</div>
 
 <!-- ── HERO ── -->
 <section id="hero">
@@ -832,6 +871,22 @@ function toggleFaq(btn) {
   document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
   if (!wasOpen) item.classList.add('open');
 }
+
+(function(){
+  var toggle = document.getElementById('menuToggle');
+  var nav = document.getElementById('mobileNav');
+  if (!toggle || !nav) return;
+  toggle.addEventListener('click', function() {
+    toggle.classList.toggle('open');
+    nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  });
+  window.closeMobileNav = function() {
+    toggle.classList.remove('open');
+    nav.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+})();
 </script>
 <div class="cookie-banner" id="cookieBanner"><p>Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. Continuando la navigazione accetti l'utilizzo dei cookie. <a href="#">Cookie Policy</a></p><div class="cookie-banner-btns"><button class="cookie-btn-accept" onclick="acceptCookies()">ACCETTA</button><button class="cookie-btn-reject" onclick="rejectCookies()">RIFIUTA</button></div></div>
 <script>function acceptCookies(){localStorage.setItem('bek_cookies','accepted');document.getElementById('cookieBanner').classList.remove('show');}function rejectCookies(){localStorage.setItem('bek_cookies','rejected');document.getElementById('cookieBanner').classList.remove('show');}if(!localStorage.getItem('bek_cookies')){document.getElementById('cookieBanner').classList.add('show');}</script>
